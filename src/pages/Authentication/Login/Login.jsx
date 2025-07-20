@@ -5,11 +5,13 @@ import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
+import useAxios from '../../../hooks/useAxios';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosInstance = useAxios();
 
     const {
         register,
@@ -25,6 +27,7 @@ const Login = () => {
         signIn(data.email, data.password)
             .then(result => {
                 console.log(result.user);
+
                 if (result.user) {
                     Swal.fire({
                         // position: "top-end",
@@ -48,7 +51,7 @@ const Login = () => {
         signInWithGoogle()
             .then(async (result) => {
                 console.log(result.user);
-                // const user = result.user;
+                const user = result.user;
                 if (result.user) {
                     Swal.fire({
                         // position: "top-end",
@@ -60,16 +63,16 @@ const Login = () => {
 
                 }
 
-                //update userInfo in the database
-                // const userInfo = {
-                //     email: user.email,
-                //     role: 'user', //default role
-                //     created_at: new Date().toISOString(),
-                //     last_log_in: new Date().toISOString()
-                // }
+                // update userInfo in the database
+                const userInfo = {
+                    email: user.email,
+                    role: 'user', //default role
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                }
 
-                // const res = await axiosInstance.post('/users', userInfo);
-                // console.log('user update info in social', res.data);
+                const res = await axiosInstance.post('/users', userInfo);
+                console.log('user update info in social', res.data);
 
 
                 navigate(from)

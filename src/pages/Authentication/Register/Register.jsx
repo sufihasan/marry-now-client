@@ -3,11 +3,13 @@ import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router';
+import useAxios from '../../../hooks/useAxios';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
+    const axiosInstance = useAxios();
 
     const {
         register,
@@ -21,9 +23,22 @@ const Register = () => {
         console.log(data); // data is come from react hook from
 
         createUser(data.email, data.password)
-            .then((result) => {
+            .then(async (result) => {
 
                 console.log(result.user);
+
+                // user info to send db
+                const userInfo = {
+                    email: data.email,
+                    role: 'user', //when user register default role
+                    created_at: new Date().toISOString(),
+                    last_log_in: new Date().toISOString()
+                }
+
+                // use useAxios of axiosInstance to send data backend
+                const userRes = await axiosInstance.post('/users', userInfo);
+                console.log(userRes.data);
+
 
                 // update user profile
 

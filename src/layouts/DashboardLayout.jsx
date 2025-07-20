@@ -23,6 +23,11 @@ import {
 import { Link, Outlet } from "react-router";
 import { FaHammer, FaHome } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
+import { BiEditAlt, BiSolidData } from "react-icons/bi";
+import { GrFavorite } from "react-icons/gr";
+import { MdContacts, MdViewSidebar } from "react-icons/md";
+import { FcContacts } from "react-icons/fc";
+import { LuLogOut } from "react-icons/lu";
 
 const SidebarContent = () => (
     <Sidebar aria-label="Sidebar navigation" className="h-full">
@@ -52,37 +57,64 @@ const SidebarContent = () => (
                             </SidebarItem>
 
                         </Link>
-                        <SidebarItem href="/" icon={HiChartPie}>
-                            Dashboard
-                        </SidebarItem>
-                        <SidebarItem href="/e-commerce/products" icon={HiShoppingBag}>
+
+                        <Link to='/dashboard'>
+                            <SidebarItem icon={HiChartPie}>
+                                Dashboard Home
+                            </SidebarItem>
+                        </Link>
+
+                        <Link to='/dashboard/createBioData'>
+                            <SidebarItem icon={BiSolidData}>
+                                Create Bio data
+                            </SidebarItem>
+                        </Link>
+
+                        <Link to='/dashboard/editBioData'>
+                            <SidebarItem icon={BiEditAlt}>
+                                Edit Bio data
+                            </SidebarItem>
+                        </Link>
+
+                        <Link to='/dashboard/viewBioData'>
+                            <SidebarItem icon={MdViewSidebar}>
+                                View Bio data
+                            </SidebarItem>
+                        </Link>
+
+                        <Link to='/dashboard/viewBioData'>
+                            <SidebarItem icon={MdContacts}>
+                                My Contact Request
+                            </SidebarItem>
+                        </Link>
+
+                        <Link to='/dashboard/favoritesBioData'>
+                            <SidebarItem icon={GrFavorite}>
+                                Favorites Bio data.
+                            </SidebarItem>
+                        </Link>
+
+                        {/* <SidebarItem href="/e-commerce/products" icon={HiShoppingBag}>
                             Products
-                        </SidebarItem>
-                        <SidebarItem href="/users/list" icon={HiUsers}>
+                        </SidebarItem> */}
+                        {/* <SidebarItem href="/users/list" icon={HiUsers}>
                             Users List
-                        </SidebarItem>
-                        <SidebarItem href="/authentication/sign-in" icon={HiLogin}>
+                        </SidebarItem> */}
+                        {/* <SidebarItem href="/authentication/sign-in" icon={HiLogin}>
                             Sign In
-                        </SidebarItem>
-                        <SidebarItem href="/authentication/sign-up" icon={HiPencil}>
+                        </SidebarItem> */}
+                        {/* <SidebarItem href="/authentication/sign-up" icon={HiPencil}>
                             Sign Up
-                        </SidebarItem>
+                        </SidebarItem> */}
                     </SidebarItemGroup>
+
                     <SidebarItemGroup>
+
                         <SidebarItem
-                            href="https://github.com/themesberg/flowbite-react/"
-                            icon={HiClipboard}
+                            // onClick={handleLogout}
+                            icon={LuLogOut}
                         >
-                            Docs
-                        </SidebarItem>
-                        <SidebarItem href="https://flowbite-react.com/" icon={HiCollection}>
-                            Components
-                        </SidebarItem>
-                        <SidebarItem
-                            href="https://github.com/themesberg/flowbite-react/issues"
-                            icon={HiInformationCircle}
-                        >
-                            Help
+                            Logout
                         </SidebarItem>
                     </SidebarItemGroup>
                 </SidebarItems>
@@ -92,6 +124,7 @@ const SidebarContent = () => (
 );
 
 const DashboardLayout = () => {
+
     const [openDrawer, setOpenDrawer] = useState(false);
 
     return (

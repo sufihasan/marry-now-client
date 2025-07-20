@@ -20,7 +20,7 @@ import {
     HiShoppingBag,
     HiUsers,
 } from "react-icons/hi";
-import { Link, Outlet } from "react-router";
+import { Link, Outlet, useNavigate } from "react-router";
 import { FaHammer, FaHome } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiEditAlt, BiSolidData } from "react-icons/bi";
@@ -28,100 +28,93 @@ import { GrFavorite } from "react-icons/gr";
 import { MdContacts, MdViewSidebar } from "react-icons/md";
 import { FcContacts } from "react-icons/fc";
 import { LuLogOut } from "react-icons/lu";
+import useAuth from "../hooks/useAuth";
+import useUserRole from "../hooks/useUserRole";
 
-const SidebarContent = () => (
-    <Sidebar aria-label="Sidebar navigation" className="h-full">
-        <div className="flex h-full flex-col justify-between py-2">
-            <div>
-                {/* Mobile-only search input */}
-                <form className="pb-3 md:hidden px-2">
-                    <TextInput
-                        icon={HiSearch}
-                        type="search"
-                        placeholder="Search"
-                        required
-                    />
-                </form>
-                <SidebarItems>
-                    <SidebarItemGroup>
-                        <Link to='/'>
-                            {/* <SidebarItem >
-                                <span className="flex items-center gap-2">
-                                    <FaHome size={22}></FaHome>
-                                    Home
-                                </span>
-                            </SidebarItem> */}
+const SidebarContent = () => {
+    const navigate = useNavigate();
+    const { role, roleLoading } = useUserRole();
+    console.log(role);
 
-                            <SidebarItem icon={FaHome}>
+    const { logOut } = useAuth();
+
+    const handleLogout = () => {
+        console.log('handle logout clink');
+        logOut()
+            .then(result => {
+                console.log(result);
+                navigate('/');
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    return (
+        <Sidebar aria-label="Sidebar navigation" className="h-full">
+            <div className="flex h-full flex-col justify-between py-2">
+                <div>
+                    {/* Mobile-only search input */}
+                    <form className="pb-3 md:hidden px-2">
+                        <TextInput
+                            icon={HiSearch}
+                            type="search"
+                            placeholder="Search"
+                            required
+                        />
+                    </form>
+                    <SidebarItems>
+                        <SidebarItemGroup>
+
+                            <SidebarItem icon={FaHome} as={Link} to="/">
                                 Home
                             </SidebarItem>
 
-                        </Link>
-
-                        <Link to='/dashboard'>
-                            <SidebarItem icon={HiChartPie}>
-                                Dashboard Home
+                            <SidebarItem icon={HiChartPie} as={Link} to="/dashboard">
+                                User Dashboard
                             </SidebarItem>
-                        </Link>
 
-                        <Link to='/dashboard/createBioData'>
-                            <SidebarItem icon={BiSolidData}>
+                            <SidebarItem icon={BiSolidData} as={Link} to="/dashboard/createBioData">
                                 Create Bio data
                             </SidebarItem>
-                        </Link>
 
-                        <Link to='/dashboard/editBioData'>
-                            <SidebarItem icon={BiEditAlt}>
+                            <SidebarItem icon={BiEditAlt} as={Link} to="/dashboard/editBioData">
                                 Edit Bio data
                             </SidebarItem>
-                        </Link>
 
-                        <Link to='/dashboard/viewBioData'>
-                            <SidebarItem icon={MdViewSidebar}>
+                            <SidebarItem icon={MdViewSidebar} as={Link} to="/dashboard/viewBioData">
                                 View Bio data
                             </SidebarItem>
-                        </Link>
 
-                        <Link to='/dashboard/viewBioData'>
-                            <SidebarItem icon={MdContacts}>
+                            <SidebarItem icon={MdContacts} as={Link} to="/dashboard/viewBioData">
                                 My Contact Request
                             </SidebarItem>
-                        </Link>
 
-                        <Link to='/dashboard/favoritesBioData'>
-                            <SidebarItem icon={GrFavorite}>
+                            <SidebarItem icon={GrFavorite} as={Link} to="/dashboard/favoritesBioData">
                                 Favorites Bio data.
                             </SidebarItem>
-                        </Link>
 
-                        {/* <SidebarItem href="/e-commerce/products" icon={HiShoppingBag}>
-                            Products
-                        </SidebarItem> */}
-                        {/* <SidebarItem href="/users/list" icon={HiUsers}>
-                            Users List
-                        </SidebarItem> */}
-                        {/* <SidebarItem href="/authentication/sign-in" icon={HiLogin}>
-                            Sign In
-                        </SidebarItem> */}
-                        {/* <SidebarItem href="/authentication/sign-up" icon={HiPencil}>
-                            Sign Up
-                        </SidebarItem> */}
-                    </SidebarItemGroup>
 
-                    <SidebarItemGroup>
 
-                        <SidebarItem
-                            // onClick={handleLogout}
-                            icon={LuLogOut}
-                        >
-                            Logout
-                        </SidebarItem>
-                    </SidebarItemGroup>
-                </SidebarItems>
+                        </SidebarItemGroup>
+
+                        <SidebarItemGroup>
+
+                            <SidebarItem
+                                onClick={handleLogout}
+                                icon={LuLogOut}
+                                className="cursor-pointer"
+                            >
+                                Logout
+                            </SidebarItem>
+                        </SidebarItemGroup>
+                    </SidebarItems>
+                </div>
             </div>
-        </div>
-    </Sidebar>
-);
+        </Sidebar>
+    );
+}
+
 
 const DashboardLayout = () => {
 
@@ -148,7 +141,7 @@ const DashboardLayout = () => {
             </Drawer>
 
             {/* Main content */}
-            <div className="flex-1 p-4 md:ml-64  md:mt-0 mt-14">
+            <div className="flex-1 p-4   md:mt-0 mt-14 ">
                 <Outlet />
             </div>
         </div>

@@ -20,8 +20,8 @@ import {
     HiShoppingBag,
     HiUsers,
 } from "react-icons/hi";
-import { Outlet } from "react-router";
-import { FaHammer } from "react-icons/fa";
+import { Link, Outlet } from "react-router";
+import { FaHammer, FaHome } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 const SidebarContent = () => (
@@ -39,6 +39,19 @@ const SidebarContent = () => (
                 </form>
                 <SidebarItems>
                     <SidebarItemGroup>
+                        <Link to='/'>
+                            {/* <SidebarItem >
+                                <span className="flex items-center gap-2">
+                                    <FaHome size={22}></FaHome>
+                                    Home
+                                </span>
+                            </SidebarItem> */}
+
+                            <SidebarItem icon={FaHome}>
+                                Home
+                            </SidebarItem>
+
+                        </Link>
                         <SidebarItem href="/" icon={HiChartPie}>
                             Dashboard
                         </SidebarItem>

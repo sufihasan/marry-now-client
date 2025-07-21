@@ -8,6 +8,7 @@ import Register from "../pages/Authentication/Register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import DashBoardHome from "../pages/DashBoard/DashBoardHome/DashBoardHome";
 import CreateBioData from "../pages/DashBoard/CreateBioData/CreateBioData";
+import Biodatas from "../pages/Biodatas/Biodatas";
 
 export const router = createBrowserRouter([
     {
@@ -21,6 +22,10 @@ export const router = createBrowserRouter([
             {
                 path: '/contactUs',
                 Component: ContactUs
+            },
+            {
+                path: '/biodatas',
+                Component: Biodatas
             }
         ]
     },

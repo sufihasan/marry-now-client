@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
 
 
 const divisions = [
-    "Dhaka", "Chattagra", "Rangpur", "Barisal",
+    "Dhaka", "Chattogram", "Rangpur", "Barisal",
     "Khulna", "Mymensingh", "Sylhet"
 ];
 
@@ -57,7 +57,7 @@ const CreateBioData = () => {
             Swal.fire({
                 // position: "top-end",
                 icon: "success",
-                title: "Your work has been saved",
+                title: "Your Biodata has been saved",
                 showConfirmButton: false,
                 timer: 1500
             });

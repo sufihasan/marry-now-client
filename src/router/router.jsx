@@ -7,6 +7,7 @@ import Login from "../pages/Authentication/Login/Login";
 import Register from "../pages/Authentication/Register/Register";
 import DashboardLayout from "../layouts/DashboardLayout";
 import DashBoardHome from "../pages/DashBoard/DashBoardHome/DashBoardHome";
+import CreateBioData from "../pages/DashBoard/CreateBioData/CreateBioData";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
                 index: true,
                 Component: DashBoardHome
             },
+            {
+                path: '/dashboard/createBioData',
+                element: <CreateBioData></CreateBioData>
+            }
         ]
     }
 ]);

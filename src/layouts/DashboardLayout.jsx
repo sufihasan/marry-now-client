@@ -21,11 +21,11 @@ import {
     HiUsers,
 } from "react-icons/hi";
 import { Link, Outlet, useNavigate } from "react-router";
-import { FaHammer, FaHome } from "react-icons/fa";
+import { FaHammer, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiEditAlt, BiSolidData } from "react-icons/bi";
-import { GrFavorite } from "react-icons/gr";
-import { MdContacts, MdViewSidebar } from "react-icons/md";
+import { GrContact, GrFavorite } from "react-icons/gr";
+import { MdContacts, MdViewSidebar, MdWorkspacePremium } from "react-icons/md";
 import { FcContacts } from "react-icons/fc";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../hooks/useAuth";
@@ -70,31 +70,56 @@ const SidebarContent = () => {
                                 Home
                             </SidebarItem>
 
-                            <SidebarItem icon={HiChartPie} as={Link} to="/dashboard">
-                                User Dashboard
-                            </SidebarItem>
 
-                            <SidebarItem icon={BiSolidData} as={Link} to="/dashboard/createBioData">
-                                Create Bio data
-                            </SidebarItem>
+                            {/* user dashboard */}
+                            {!roleLoading && role === 'user' && <>
+                                <SidebarItem icon={HiChartPie} as={Link} to="/dashboard">
+                                    User Dashboard
+                                </SidebarItem>
 
-                            <SidebarItem icon={BiEditAlt} as={Link} to="/dashboard/editBioData">
-                                Edit Bio data
-                            </SidebarItem>
+                                <SidebarItem icon={BiSolidData} as={Link} to="/dashboard/createBioData">
+                                    Create Bio data
+                                </SidebarItem>
 
-                            <SidebarItem icon={MdViewSidebar} as={Link} to="/dashboard/viewBioData">
-                                View Bio data
-                            </SidebarItem>
+                                <SidebarItem icon={BiEditAlt} as={Link} to="/dashboard/editBioData">
+                                    Edit Bio data
+                                </SidebarItem>
 
-                            <SidebarItem icon={MdContacts} as={Link} to="/dashboard/viewBioData">
-                                My Contact Request
-                            </SidebarItem>
+                                <SidebarItem icon={MdViewSidebar} as={Link} to="/dashboard/viewBioData">
+                                    View Bio data
+                                </SidebarItem>
 
-                            <SidebarItem icon={GrFavorite} as={Link} to="/dashboard/favoritesBioData">
-                                Favorites Bio data.
-                            </SidebarItem>
+                                <SidebarItem icon={MdContacts} as={Link} to="/dashboard/viewBioData">
+                                    My Contact Request
+                                </SidebarItem>
+
+                                <SidebarItem icon={GrFavorite} as={Link} to="/dashboard/favoritesBioData">
+                                    Favorites Bio data.
+                                </SidebarItem>
+                            </>}
 
 
+
+                            {/* admin dashboard item */}
+                            {!roleLoading && role === 'admin' && <>
+
+                                <SidebarItem icon={HiChartPie} as={Link} to="/dashboard">
+                                    Admin Dashboard
+                                </SidebarItem>
+
+                                <SidebarItem icon={FaUsers} as={Link} to="/dashboard/manageUsers">
+                                    Manage Users
+                                </SidebarItem>
+
+                                <SidebarItem icon={MdWorkspacePremium} as={Link} to="/dashboard/approvedPremium">
+                                    Approved Premium
+                                </SidebarItem>
+
+                                <SidebarItem icon={GrContact} as={Link} to="/dashboard/approvedContactRequest">
+                                    Approved Contact Request
+                                </SidebarItem>
+
+                            </>}
 
                         </SidebarItemGroup>
 
@@ -119,6 +144,8 @@ const SidebarContent = () => {
 const DashboardLayout = () => {
 
     const [openDrawer, setOpenDrawer] = useState(false);
+
+    // c1 c2 c3
 
     return (
         <div className="flex min-h-screen">

@@ -1,9 +1,12 @@
 // Biodatas.jsx
 import React from 'react';
-import { Card } from 'flowbite-react';
+import { Card, Spinner } from 'flowbite-react';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import useAxiosSecure from '../../hooks/useAxiosSecure';
+// import useAxiosSecure from '../../hooks/useAxiosSecure';
+import useAxios from '../../hooks/useAxios';
+import { Link } from 'react-router';
+
 
 
 const divisions = [
@@ -17,7 +20,8 @@ const divisions = [
 ];
 
 const Biodatas = () => {
-    const axiosSecure = useAxiosSecure();
+    // const axiosSecure = useAxiosSecure();
+    const axiosInstance = useAxios();
 
     const [filters, setFilters] = useState({
         minAge: '',
@@ -29,7 +33,7 @@ const Biodatas = () => {
     const { data: biodatas = [], isLoading } = useQuery({
         queryKey: ['biodatas'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/bioDatas');
+            const res = await axiosInstance.get('/bioDatas');
             return res.data;
         },
     });
@@ -103,10 +107,16 @@ const Biodatas = () => {
                 </div>
             </div>
 
+            {/* c1 c2 c3 */}
+
             {/* Biodata Cards Section */}
             <div className="lg:w-3/4 w-full grid gap-4 grid-cols-1 sm:grid-cols-2 xl:grid-cols-3">
                 {isLoading ? (
-                    <p>Loading...</p>
+                    <div className="w-full col-span-full flex justify-center">
+                        <Spinner aria-label="Loading biodata" size="xl" />
+                    </div>
+                ) : filtered.length === 0 ? (
+                    <p className="text-center col-span-full text-red-500 font-medium">No biodata found based on selected filters.</p>
                 ) : (
                     filtered.map((biodata) => (
                         <Card key={biodata._id} className="h-full">
@@ -121,9 +131,11 @@ const Biodatas = () => {
                                 <p className="text-sm">Division: {biodata.permanentDivision}</p>
                                 <p className="text-sm">Age: {biodata.age}</p>
                                 <p className="text-sm">Occupation: {biodata.occupation}</p>
-                                <button className="mt-2 px-4 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">
-                                    View Profile
-                                </button>
+                                <Link to={`/biodataDetails/${biodata.biodataId}`}>
+                                    <button className="mt-2 px-4 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">
+                                        View Profile
+                                    </button>
+                                </Link>
                             </div>
                         </Card>
                     ))

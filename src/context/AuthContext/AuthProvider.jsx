@@ -10,7 +10,7 @@ const AuthProvider = ({ children }) => {
     const [user, SetUser] = useState(null);
     const [loading, setLoading] = useState(true);
 
-    const email = 'has@gmail.com';
+    // const email = 'has@gmail.com';
 
     // create user with email and password
     const createUser = (email, password) => {
@@ -59,7 +59,7 @@ const AuthProvider = ({ children }) => {
     const authInfo = {
         user,
         loading,
-        email,
+
         createUser,
         updateUserProfile,
         signIn,

@@ -89,7 +89,7 @@ const SidebarContent = () => {
                                     View Bio data
                                 </SidebarItem>
 
-                                <SidebarItem icon={MdContacts} as={Link} to="/dashboard/viewBioData">
+                                <SidebarItem icon={MdContacts} as={Link} to="/dashboard/contactRequest">
                                     My Contact Request
                                 </SidebarItem>
 

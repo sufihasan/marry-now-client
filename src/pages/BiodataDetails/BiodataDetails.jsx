@@ -120,7 +120,7 @@ const BiodataDetails = () => {
                         <p><strong>Mobile:</strong> {biodata.mobile}</p>
                     </>
                 ) : (
-                    <Button color="warning" onClick={handleRequestContact} className="my-2">
+                    <Button onClick={handleRequestContact} className="my-2">
                         Request Contact Information
                     </Button>
                 )}

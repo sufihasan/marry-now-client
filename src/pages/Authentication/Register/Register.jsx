@@ -30,6 +30,7 @@ const Register = () => {
                 // user info to send db
                 const userInfo = {
                     email: data.email,
+                    name: data.name,
                     role: 'user', //when user register default role
                     created_at: new Date().toISOString(),
                     last_log_in: new Date().toISOString()

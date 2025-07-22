@@ -14,6 +14,7 @@ import ApprovedPremium from "../pages/DashBoard/ApprovedPremium/ApprovedPremium"
 import MyFavouritesBiodata from "../pages/DashBoard/MyFavouritesBiodata/MyFavouritesBiodata";
 import EditBiodata from "../pages/DashBoard/EditBiodata/EditBiodata";
 import BiodataDetails from "../pages/BiodataDetails/BiodataDetails";
+import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
 
 export const router = createBrowserRouter([
     {
@@ -86,6 +87,10 @@ export const router = createBrowserRouter([
             {
                 path: 'approvedPremium',
                 element: <ApprovedPremium></ApprovedPremium>
+            },
+            {
+                path: 'manageUsers',
+                element: <ManageUsers></ManageUsers>
             }
         ]
     }

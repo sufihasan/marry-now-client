@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { Link, useNavigate, useParams } from 'react-router';
 import { Button, Card } from 'flowbite-react';
 import { useQuery, useMutation } from '@tanstack/react-query';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
@@ -36,12 +36,12 @@ const BiodataDetails = () => {
 
     // Get similar biodatas (max 3) by biodataType
     const { data: similarBiodatas = [] } = useQuery({
-        queryKey: ['similarBiodatas', biodata?.biodataType],
+        queryKey: ['similarBiodatas', biodata?.biodataType, biodataId],
         queryFn: async () => {
-            const res = await axiosSecure.get(`/biodata/similar/${biodata?.biodataType}`);
+            const res = await axiosSecure.get(`/biodata/similar/${biodata?.biodataType}?excludeId=${biodataId}`);
             return res.data;
         },
-        enabled: !!biodata?.biodataType,
+        enabled: !!biodata?.biodataType && !!biodataId,
     });
 
     // Mutation to add favourite
@@ -132,7 +132,7 @@ const BiodataDetails = () => {
 
             {/* Similar Biodatas */}
             <div className="mt-10">
-                <h3 className="text-xl font-semibold mb-4">Similar Biodatas</h3>
+                <h3 className="text-xl font-semibold mb-4 text-center">Similar Biodatas</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {similarBiodatas.map((similar) => (
                         <Card key={similar._id}>
@@ -140,6 +140,9 @@ const BiodataDetails = () => {
                             <h4 className="text-lg font-medium">{similar.name}</h4>
                             <p>Biodata ID: {similar.biodataId}</p>
                             <p>Age: {similar.age}</p>
+                            <Link to={`/biodataDetails/${similar.biodataId}`}>
+                                <Button >View Profile</Button>
+                            </Link>
                         </Card>
                     ))}
                 </div>

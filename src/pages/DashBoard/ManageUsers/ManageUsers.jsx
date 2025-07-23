@@ -23,12 +23,12 @@ const ManageUsers = () => {
     const { data: pendingBiodatas = [] } = useQuery({
         queryKey: ['pendingBiodatas'],
         queryFn: async () => {
-            const res = await axiosSecure.get('/biodatas/pending');
+            const res = await axiosSecure.get('/bioDatas/pending-premium');
             return res.data;
         }
     });
 
-    // const pendingEmails = pendingBiodatas.map(bio => bio.email);
+    const pendingEmails = pendingBiodatas?.map(bio => bio.email);
 
     // Make Admin
     const makeAdminMutation = useMutation({
@@ -92,17 +92,18 @@ const ManageUsers = () => {
                                         </Button>
                                     )}
                                 </TableCell>
-                                {/* <TableCell>
+                                <TableCell>
+                                    {/*  */}
                                     {pendingEmails.includes(user.email) && (
                                         <Button
-                                            color="success"
+                                            color="yellow"
                                             size="xs"
                                             onClick={() => makePremiumMutation.mutate(user.email)}
                                         >
                                             Make Premium
                                         </Button>
                                     )}
-                                </TableCell> */}
+                                </TableCell>
                             </TableRow>
                         ))}
                     </TableBody>

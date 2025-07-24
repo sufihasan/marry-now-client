@@ -16,6 +16,7 @@ import EditBiodata from "../pages/DashBoard/EditBiodata/EditBiodata";
 import BiodataDetails from "../pages/BiodataDetails/BiodataDetails";
 import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
 import GotMarriedForm from "../pages/DashBoard/GotMarriedForm/GotMarriedForm";
+import SuccessStory from "../pages/DashBoard/SuccessStory/SuccessStory";
 
 export const router = createBrowserRouter([
     {
@@ -96,6 +97,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manageUsers',
                 element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'successStory',
+                element: <SuccessStory></SuccessStory>
             }
         ]
     }

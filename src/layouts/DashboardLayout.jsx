@@ -123,6 +123,10 @@ const SidebarContent = () => {
                                     Approved Contact Request
                                 </SidebarItem>
 
+                                <SidebarItem icon={ImManWoman} as={Link} to="/dashboard/successStory">
+                                    Success Story
+                                </SidebarItem>
+
                             </>}
 
                         </SidebarItemGroup>

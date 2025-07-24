@@ -3,7 +3,7 @@ import React from 'react';
 import CountUp, { useCountUp } from 'react-countup';
 
 
-const SuccessCounter = ({ totalBiodata, totalBoys, totalGirls }) => {
+const SuccessCounter = ({ totalBiodata, totalBoys, totalGirls, totalMarriages }) => {
 
 
     useCountUp({
@@ -26,7 +26,7 @@ const SuccessCounter = ({ totalBiodata, totalBoys, totalGirls }) => {
     });
     useCountUp({
         ref: 'counter4',
-        end: 7,
+        end: totalMarriages,
         enableScrollSpy: true,
         scrollSpyDelay: 500,
     });

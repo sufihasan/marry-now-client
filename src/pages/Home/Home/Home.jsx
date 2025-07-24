@@ -22,6 +22,7 @@ const Home = () => {
     const totalBiodata = Number(stats?.totalBiodata);
     const totalBoys = Number(stats?.totalBoys);
     const totalGirls = Number(stats?.totalGirls);
+    const totalMarriages = Number(stats?.totalMarried);
 
     return (
         <div>
@@ -33,6 +34,7 @@ const Home = () => {
                 totalBiodata={totalBiodata}
                 totalBoys={totalBoys}
                 totalGirls={totalGirls}
+                totalMarriages={totalMarriages}
             ></SuccessCounter>}
 
             <HomeSuccessStories></HomeSuccessStories>

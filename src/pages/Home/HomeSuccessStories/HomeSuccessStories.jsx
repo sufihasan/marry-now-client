@@ -20,8 +20,9 @@ const HomeSuccessStories = () => {
     if (isLoading) return <Spinner color="green" />;
 
     return (
-        <div className='w-11/12 mx-auto'>
-            <div className="grid md:grid-cols-3 gap-6  my-10">
+        <div className='w-11/12 mx-auto mt-10'>
+            <h1 className='text-center text-3xl font-semibold'>Success Story</h1>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-5">
                 {stories.map((story, i) => (
                     <Card key={i} className="shadow-lg">
                         <img src={story.coupleImage} alt="Couple" className="rounded-lg h-48 w-full " />

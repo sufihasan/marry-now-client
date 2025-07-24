@@ -25,6 +25,7 @@ import { FaHammer, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiEditAlt, BiSolidData } from "react-icons/bi";
 import { GrContact, GrFavorite } from "react-icons/gr";
+import { ImManWoman } from "react-icons/im";
 import { MdContacts, MdViewSidebar, MdWorkspacePremium } from "react-icons/md";
 import { FcContacts } from "react-icons/fc";
 import { LuLogOut } from "react-icons/lu";
@@ -95,6 +96,9 @@ const SidebarContent = () => {
 
                                 <SidebarItem icon={GrFavorite} as={Link} to="/dashboard/favoritesBioData">
                                     Favorites Bio data.
+                                </SidebarItem>
+                                <SidebarItem icon={ImManWoman} as={Link} to="/dashboard/gotMarried">
+                                    Got Married
                                 </SidebarItem>
                             </>}
 

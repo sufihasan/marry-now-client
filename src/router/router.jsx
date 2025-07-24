@@ -15,6 +15,7 @@ import MyFavouritesBiodata from "../pages/DashBoard/MyFavouritesBiodata/MyFavour
 import EditBiodata from "../pages/DashBoard/EditBiodata/EditBiodata";
 import BiodataDetails from "../pages/BiodataDetails/BiodataDetails";
 import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
+import GotMarriedForm from "../pages/DashBoard/GotMarriedForm/GotMarriedForm";
 
 export const router = createBrowserRouter([
     {
@@ -79,6 +80,10 @@ export const router = createBrowserRouter([
             {
                 path: 'editBioData',
                 element: <EditBiodata></EditBiodata>
+            },
+            {
+                path: 'gotMarried',
+                element: <GotMarriedForm></GotMarriedForm>
             },
 
 

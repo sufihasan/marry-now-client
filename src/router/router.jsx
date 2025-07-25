@@ -18,6 +18,8 @@ import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
 import GotMarriedForm from "../pages/DashBoard/GotMarriedForm/GotMarriedForm";
 import SuccessStory from "../pages/DashBoard/SuccessStory/SuccessStory";
 import Checkout from "../pages/Payment/Checkout/Checkout";
+import ApprovedContactRequest from "../pages/DashBoard/ApprovedContactRequest/ApprovedContactRequest";
+import MyContactRequest from "../pages/DashBoard/MyContactRequest/MyContactRequest";
 
 export const router = createBrowserRouter([
     {
@@ -91,6 +93,10 @@ export const router = createBrowserRouter([
                 path: 'gotMarried',
                 element: <GotMarriedForm></GotMarriedForm>
             },
+            {
+                path: 'contactRequest',
+                element: <MyContactRequest></MyContactRequest>
+            },
 
 
             // admin route
@@ -106,6 +112,10 @@ export const router = createBrowserRouter([
             {
                 path: 'successStory',
                 element: <SuccessStory></SuccessStory>
+            },
+            {
+                path: 'approvedContactRequest',
+                element: <ApprovedContactRequest></ApprovedContactRequest>
             }
         ]
     }

@@ -17,6 +17,7 @@ import BiodataDetails from "../pages/BiodataDetails/BiodataDetails";
 import ManageUsers from "../pages/DashBoard/ManageUsers/ManageUsers";
 import GotMarriedForm from "../pages/DashBoard/GotMarriedForm/GotMarriedForm";
 import SuccessStory from "../pages/DashBoard/SuccessStory/SuccessStory";
+import Checkout from "../pages/Payment/Checkout/Checkout";
 
 export const router = createBrowserRouter([
     {
@@ -52,6 +53,10 @@ export const router = createBrowserRouter([
             {
                 path: 'biodataDetails/:biodataId',
                 element: <BiodataDetails></BiodataDetails>
+            },
+            {
+                path: 'checkout/:biodataId',
+                element: <Checkout></Checkout>
             }
         ]
     },

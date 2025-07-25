@@ -10,7 +10,7 @@ import Swal from 'sweetalert2';
 
 const BiodataDetails = () => {
     const { biodataId } = useParams();
-    console.log(biodataId);
+    // console.log(biodataId);
     const axiosSecure = useAxiosSecure();
     const { user } = useAuth();
     const navigate = useNavigate();

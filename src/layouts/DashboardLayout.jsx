@@ -163,7 +163,7 @@ const DashboardLayout = () => {
             </div>
 
             {/* Mobile toggle button */}
-            <div className="md:hidden fixed top-4 p-2 flex gap-2 bg-gray-200/30 w-full">
+            <div className="md:hidden fixed text-white  p-2 flex gap-2 bg-gray-400 w-full">
                 <span className="" onClick={() => setOpenDrawer(true)}><RxHamburgerMenu size={24} /></span>
                 Dashboard
             </div>

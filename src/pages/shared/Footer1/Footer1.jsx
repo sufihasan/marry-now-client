@@ -6,9 +6,10 @@ import { Link } from 'react-router';
 const Footer1 = () => {
     return (
         <div>
-            <Footer container>
-                <div className="w-full text-center">
-                    <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
+            <Footer >
+                <div className="w-full text-center bg-gray-300 py-10">
+                    {/* w-full justify-between sm:flex sm:items-center sm:justify-between */}
+                    <div className="w-full flex flex-col items-center">
                         {/* <FooterBrand
                             // href="https://flowbite.com"
                             src="https://i.ibb.co/d00NvDCZ/newlogobr.png"
@@ -19,16 +20,17 @@ const Footer1 = () => {
                             <img className='w-10 h-10' src="https://i.ibb.co/d00NvDCZ/newlogobr.png" alt="" />
                             <h1 className='text-2xl font-semibold'>MarryNow</h1>
                         </div>
-                        <FooterLinkGroup>
-                            <FooterLink >About</FooterLink>
-                            <FooterLink >Privacy Policy</FooterLink>
-                            <FooterLink >Licensing</FooterLink>
-                            <FooterLink >Contact</FooterLink>
+                        <FooterLinkGroup className='text-black'>
+                            <FooterLink ><Link to='/aboutUs'>About</Link></FooterLink>
+                            <FooterLink ><Link to='/'>Privacy Policy</Link></FooterLink>
+                            <FooterLink ><Link to='/'>Licensing</Link></FooterLink>
+                            <FooterLink ><Link to='/contactUs'>Contact</Link></FooterLink>
                         </FooterLinkGroup>
                     </div>
                     <FooterDivider />
-                    <Link to='/'><FooterCopyright by="MarryNow™" year={2025} /></Link>
-
+                    {/* <Link className='' to='/'><FooterCopyright by="MarryNow™" year={2025} /></Link> */}
+                    {/* <p>Alright reserved by Marrynow</p> */}
+                    <p className='text-sm'>Copyright © {new Date().getFullYear()} - All right reserved by MarryNow Ltd</p>
                 </div>
             </Footer>
         </div>

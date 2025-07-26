@@ -20,6 +20,7 @@ import SuccessStory from "../pages/DashBoard/SuccessStory/SuccessStory";
 import Checkout from "../pages/Payment/Checkout/Checkout";
 import ApprovedContactRequest from "../pages/DashBoard/ApprovedContactRequest/ApprovedContactRequest";
 import MyContactRequest from "../pages/DashBoard/MyContactRequest/MyContactRequest";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
     {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
             {
                 path: '/biodatas',
                 Component: Biodatas
+            },
+            {
+                path: '/aboutUs',
+                Component: AboutUs
             }
         ]
     },

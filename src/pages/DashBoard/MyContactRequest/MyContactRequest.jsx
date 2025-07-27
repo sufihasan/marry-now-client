@@ -1,17 +1,16 @@
 import { Table, Button, TableHead, TableHeadCell, TableRow, TableCell, TableBody } from "flowbite-react";
 import { useQuery } from "@tanstack/react-query";
-// import useAxiosSecure from "../../hooks/useAxiosSecure";
-// import useAuth from "../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
 
 const MyContactRequest = () => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    const { data: requests = [], refetch } = useQuery({
+    const { data: requests = [], refetch, isLoading } = useQuery({
         queryKey: ['contactRequests', user?.email],
+        enabled: !!user?.email,
         queryFn: async () => {
             const res = await axiosSecure.get(`/contact-requests/${user?.email}`);
             return res.data;
@@ -19,11 +18,7 @@ const MyContactRequest = () => {
     });
 
     const handleDelete = async (biodataId) => {
-        // const confirmed = confirm('Are you sure you want to delete this request?');
-        // if (confirmed) {
-        //     await axiosSecure.delete(`/contact-requests/${biodataId}?email=${user?.email}`);
-        //     refetch();
-        // }
+
 
         Swal.fire({
             title: 'Are you sure?',
@@ -56,33 +51,53 @@ const MyContactRequest = () => {
         });
     };
 
+
+
+
     return (
-        <div className="overflow-x-auto">
-            <Table striped>
-                <TableHead>
-                    <TableHeadCell>Name</TableHeadCell>
-                    <TableHeadCell>Biodata ID</TableHeadCell>
-                    <TableHeadCell>Status</TableHeadCell>
-                    <TableHeadCell>Mobile</TableHeadCell>
-                    <TableHeadCell>Email</TableHeadCell>
-                    <TableHeadCell>Action</TableHeadCell>
-                </TableHead>
-                <TableBody className="divide-y">
-                    {requests.map((req) => (
-                        <TableRow key={req.biodataId}>
-                            <TableCell>{req.name}</TableCell>
-                            <TableCell>{req.biodataId}</TableCell>
-                            <TableCell>{req.status}</TableCell>
-                            <TableCell>{req.mobile}</TableCell>
-                            <TableCell>{req.email}</TableCell>
-                            <TableCell>
-                                <Button color="red" onClick={() => handleDelete(req.biodataId)}>Delete</Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+
+        <div>
+            {
+                isLoading || loading ? <p>Loading...</p> : requests.length > 0 ?
+                    <div className="overflow-x-auto">
+                        <h1 className="md:text-center text-2xl font-semibold my-3">My Contact Request</h1>
+
+                        <Table striped>
+                            <TableHead>
+                                <TableRow>
+                                    <TableHeadCell>Name</TableHeadCell>
+                                    <TableHeadCell>Biodata ID</TableHeadCell>
+                                    <TableHeadCell>Status</TableHeadCell>
+                                    <TableHeadCell>Mobile</TableHeadCell>
+                                    <TableHeadCell>Email</TableHeadCell>
+                                    <TableHeadCell>Action</TableHeadCell>
+                                </TableRow>
+
+                            </TableHead>
+                            <TableBody className="divide-y">
+                                {requests.map((req) => (
+                                    <TableRow key={req.biodataId}>
+                                        <TableCell>{req.name}</TableCell>
+                                        <TableCell>{req.biodataId}</TableCell>
+                                        <TableCell>{req.status}</TableCell>
+                                        <TableCell>{req.mobile}</TableCell>
+                                        <TableCell>{req.email}</TableCell>
+                                        <TableCell>
+                                            <Button color="red" onClick={() => handleDelete(req.biodataId)}>Delete</Button>
+                                        </TableCell>
+                                    </TableRow>
+                                ))}
+                            </TableBody>
+                        </Table>
+                    </div> : <p className="text-center text-red-500">You have no request contact</p>
+            }
+
+            {/* || requests.length === 0 */}
+
         </div>
+
+
+
     );
 };
 

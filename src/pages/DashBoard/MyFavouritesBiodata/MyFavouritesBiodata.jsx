@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 
 
 const MyFavouritesBiodata = () => {
-    const { user } = useAuth();
+    const { user, loading } = useAuth();
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient();
 
@@ -50,36 +50,48 @@ const MyFavouritesBiodata = () => {
         });
     };
 
-    if (isLoading) return <p className="text-center">Loading...</p>;
+    if (isLoading || loading) return <p className="text-center">Loading...</p>;
 
     return (
-        <div className="overflow-x-auto p-4">
-            <h2 className="text-2xl font-semibold mb-4 text-center">My Favourite Biodatas</h2>
-            <Table hoverable>
-                <TableHead>
-                    <TableHeadCell>Name</TableHeadCell>
-                    <TableHeadCell>Biodata ID</TableHeadCell>
-                    <TableHeadCell>Permanent Address</TableHeadCell>
-                    <TableHeadCell>Occupation</TableHeadCell>
-                    <TableHeadCell>Action</TableHeadCell>
-                </TableHead>
-                <TableBody className="divide-y">
-                    {favouriteBiodatas.map((biodata) => (
-                        <TableRow key={biodata._id}>
-                            <TableCell>{biodata.name}</TableCell>
-                            <TableCell>{biodata.biodataId}</TableCell>
-                            <TableCell>{biodata.permanentDivision}</TableCell>
-                            <TableCell>{biodata.occupation}</TableCell>
-                            <TableCell>
-                                <Button color="red" size="xs" onClick={() => handleDelete(biodata.biodataId)}>
-                                    Delete
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+
+        <div>
+            {favouriteBiodatas.length > 0 ?
+
+                < div className="overflow-x-auto p-4" >
+                    <h2 className="text-2xl font-semibold mb-4 text-center">My Favourite Biodatas</h2>
+                    <Table hoverable>
+                        <TableHead>
+                            <TableRow>
+                                <TableHeadCell>Name</TableHeadCell>
+                                <TableHeadCell>Biodata ID</TableHeadCell>
+                                <TableHeadCell>Permanent Address</TableHeadCell>
+                                <TableHeadCell>Occupation</TableHeadCell>
+                                <TableHeadCell>Action</TableHeadCell>
+                            </TableRow>
+
+                        </TableHead>
+                        <TableBody className="divide-y">
+                            {favouriteBiodatas.map((biodata) => (
+                                <TableRow key={biodata._id}>
+                                    <TableCell>{biodata.name}</TableCell>
+                                    <TableCell>{biodata.biodataId}</TableCell>
+                                    <TableCell>{biodata.permanentDivision}</TableCell>
+                                    <TableCell>{biodata.occupation}</TableCell>
+                                    <TableCell>
+                                        <Button color="red" size="xs" onClick={() => handleDelete(biodata.biodataId)}>
+                                            Delete
+                                        </Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
+                </ div>
+
+                : <p className='text-center text-red-500'>You have no Favorite bio-data</p>}
         </div>
+
+
     );
 };
 

@@ -19,7 +19,7 @@ const ManageUsers = () => {
     //     }
     // });
 
-    // ✅ Fetch users with server-side filtering
+    // Fetch users with server-side filtering
     const { data: users = [], isLoading } = useQuery({
         queryKey: ['allUsersWithBiodataStatus', search],
         queryFn: async () => {
@@ -108,7 +108,7 @@ const ManageUsers = () => {
     };
 
     return (
-        <div>
+        <div >
 
             {
                 isLoading ? <div className="w-full col-span-full flex justify-center mt-20">
@@ -116,30 +116,37 @@ const ManageUsers = () => {
                 </div> :
 
                     <div className="p-4">
-                        <h2 className="text-2xl font-semibold mb-4">Manage Users</h2>
+                        <h2 className="text-2xl font-semibold mb-4 ">Manage Users</h2>
 
                         <TextInput
                             placeholder="Search by name..."
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
-                            className="max-w-sm mb-4"
+                            className="w-1/2  mb-4"
                         />
 
+                        {/* md:max-w-sm  */}
+
                         <div className="overflow-x-auto">
-                            <Table hoverable>
+                            <Table>
+
                                 <TableHead>
-                                    <TableHeadCell>User Name</TableHeadCell>
-                                    <TableHeadCell>User Email</TableHeadCell>
-                                    <TableHeadCell>Make Admin</TableHeadCell>
-                                    <TableHeadCell>Make Premium</TableHeadCell>
+                                    <TableRow>
+                                        <TableHeadCell>User Name</TableHeadCell>
+                                        <TableHeadCell>User Email</TableHeadCell>
+                                        <TableHeadCell>Make Admin</TableHeadCell>
+                                        <TableHeadCell>Make Premium</TableHeadCell>
+                                    </TableRow>
+
                                 </TableHead>
+
                                 <TableBody className="divide-y">
                                     {users.map(user => (
                                         <TableRow key={user._id} className="bg-white dark:border-gray-700 dark:bg-gray-800">
                                             <TableCell className="whitespace-nowrap font-medium text-gray-900 dark:text-white">
                                                 {user.name || 'N/A'}
                                             </TableCell>
-                                            <TableCell>{user.email}</TableCell>
+                                            <TableCell >{user?.email}</TableCell>
                                             <TableCell>
                                                 {user.role === 'admin' ? <span className='font-bold text-green-600'>Admin</span> : (
                                                     <Button
@@ -178,6 +185,7 @@ const ManageUsers = () => {
                             </Table>
                         </div>
                     </div>
+
             }
 
         </div>

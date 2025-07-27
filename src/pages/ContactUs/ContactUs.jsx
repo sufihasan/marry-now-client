@@ -32,7 +32,7 @@ const ContactUs = () => {
                             <Label htmlFor="message" value="Your Message" />
                             <Textarea id="message" placeholder="Write your message here..." rows={5} required />
                         </div>
-                        <Button type="submit" color="blue">
+                        <Button color="blue">
                             Send Message
                         </Button>
                     </form>

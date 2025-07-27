@@ -33,62 +33,71 @@ const SuccessStory = () => {
     if (isLoading) return <p className="text-center">Loading...</p>;
 
     return (
-        <div className="overflow-x-auto">
-            <h2 className="text-xl font-bold mb-4">Success Stories</h2>
-            <Table>
-                <TableHead>
-                    <TableHeadCell>Male Biodata ID</TableHeadCell>
-                    <TableHeadCell>Female Biodata ID</TableHeadCell>
-                    <TableHeadCell>Actions</TableHeadCell>
-                </TableHead>
-                <TableBody>
-                    {stories.map((story) => (
-                        <TableRow key={story._id}>
-                            <TableCell>{story.male?.biodataId}</TableCell>
-                            <TableCell>{story.female?.biodataId}</TableCell>
-                            <TableCell>
-                                <Button
-                                    size="xs"
-                                    onClick={() => {
-                                        setSelectedStory(story);
-                                        setOpenModal(true);
-                                    }}
-                                >
-                                    View Story
-                                </Button>
-                            </TableCell>
-                        </TableRow>
-                    ))}
-                </TableBody>
-            </Table>
+        <div>
+            {
+                stories.length > 0 ? <div className="overflow-x-auto">
+                    <h2 className="text-xl font-bold mb-4">Success Stories</h2>
+                    <Table>
+                        <TableHead>
+                            <TableRow>
+                                <TableHeadCell>Male Biodata ID</TableHeadCell>
+                                <TableHeadCell>Female Biodata ID</TableHeadCell>
+                                <TableHeadCell>Actions</TableHeadCell>
+                            </TableRow>
+                        </TableHead>
+                        <TableBody>
+                            {stories.map((story) => (
+                                <TableRow key={story._id}>
+                                    <TableCell>{story.male?.biodataId}</TableCell>
+                                    <TableCell>{story.female?.biodataId}</TableCell>
+                                    <TableCell>
+                                        <Button
+                                            size="xs"
+                                            onClick={() => {
+                                                setSelectedStory(story);
+                                                setOpenModal(true);
+                                            }}
+                                        >
+                                            View Story
+                                        </Button>
+                                    </TableCell>
+                                </TableRow>
+                            ))}
+                        </TableBody>
+                    </Table>
 
-            {/* Modal */}
-            {selectedStory && (
-                <Modal show={openModal} onClose={() => setOpenModal(false)}>
-                    <ModalHeader>Marriage Success Story</ModalHeader>
-                    <ModalBody>
-                        <div className="text-center">
-                            <img
-                                src={selectedStory?.coupleImage}
-                                alt="Couple"
-                                className="mx-auto rounded-lg max-w-sm"
-                            />
-                            <p className="mt-2 text-gray-600">
-                                Marriage Date:{" "}
-                                {new Date(selectedStory?.marriageDate).toLocaleDateString()}
-                            </p>
-                            <div className="flex justify-center my-2 text-yellow-500">
-                                {[...Array(selectedStory.reviewStar)].map((_, i) => (
-                                    <FaStar key={i} />
-                                ))}
-                            </div>
-                            <p className="text-gray-800 text-justify whitespace-pre-line">
-                                {selectedStory?.review}
-                            </p>
-                        </div>
-                    </ModalBody>
-                </Modal>
-            )}
+                    {/* Modal */}
+
+                    {selectedStory && (
+                        <Modal show={openModal} onClose={() => setOpenModal(false)}>
+                            <ModalHeader>Marriage Success Story</ModalHeader>
+                            <ModalBody>
+                                <div className="text-center">
+                                    <img
+                                        src={selectedStory?.coupleImage}
+                                        alt="Couple"
+                                        // className="mx-auto rounded-lg max-w-sm"
+                                        className="mx-auto rounded-lg w-10/12"
+                                    />
+                                    <p className="mt-2 text-gray-600">
+                                        Marriage Date:{" "}
+                                        {new Date(selectedStory?.marriageDate).toLocaleDateString()}
+                                    </p>
+                                    <div className="flex justify-center my-2 text-yellow-500">
+                                        {[...Array(selectedStory.reviewStar)].map((_, i) => (
+                                            <FaStar key={i} />
+                                        ))}
+                                    </div>
+                                    <p className="text-gray-800 text-justify whitespace-pre-line">
+                                        {selectedStory?.review}
+                                    </p>
+                                </div>
+                            </ModalBody>
+                        </Modal>
+                    )}
+
+                </div> : <p className="text-center text-red-500">No success story available</p>
+            }
         </div>
     );
 };

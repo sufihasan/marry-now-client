@@ -21,11 +21,16 @@ import Checkout from "../pages/Payment/Checkout/Checkout";
 import ApprovedContactRequest from "../pages/DashBoard/ApprovedContactRequest/ApprovedContactRequest";
 import MyContactRequest from "../pages/DashBoard/MyContactRequest/MyContactRequest";
 import AboutUs from "../pages/AboutUs/AboutUs";
+import PrivateRoute from "../routes/PrivateRoute";
+import Forbidden from "../pages/Forbidden/Forbidden";
+import AdminRoute from "../routes/AdminRoute";
+import ErrorPage from "../pages/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <RootLayout></RootLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 index: true,
@@ -42,6 +47,22 @@ export const router = createBrowserRouter([
             {
                 path: '/aboutUs',
                 Component: AboutUs
+            },
+            {
+                path: 'biodataDetails/:biodataId',
+                element: <PrivateRoute><BiodataDetails></BiodataDetails></PrivateRoute>
+            },
+            {
+                path: 'checkout/:biodataId',
+                element: <PrivateRoute><Checkout></Checkout></PrivateRoute>
+            },
+            {
+                path: '/forbidden',
+                Component: Forbidden
+            },
+            {
+                path: '*',
+                element: <ErrorPage></ErrorPage>
             }
         ]
     },
@@ -56,20 +77,12 @@ export const router = createBrowserRouter([
             {
                 path: '/register',
                 Component: Register
-            },
-            {
-                path: 'biodataDetails/:biodataId',
-                element: <BiodataDetails></BiodataDetails>
-            },
-            {
-                path: 'checkout/:biodataId',
-                element: <Checkout></Checkout>
             }
         ]
     },
     {
         path: '/dashboard',
-        element: <DashboardLayout></DashboardLayout>,
+        element: <PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,
         children: [
             {
                 index: true,
@@ -108,19 +121,19 @@ export const router = createBrowserRouter([
 
             {
                 path: 'approvedPremium',
-                element: <ApprovedPremium></ApprovedPremium>
+                element: <AdminRoute><ApprovedPremium></ApprovedPremium></AdminRoute>
             },
             {
                 path: 'manageUsers',
-                element: <ManageUsers></ManageUsers>
+                element: <AdminRoute><ManageUsers></ManageUsers></AdminRoute>
             },
             {
                 path: 'successStory',
-                element: <SuccessStory></SuccessStory>
+                element: <AdminRoute><SuccessStory></SuccessStory></AdminRoute>
             },
             {
                 path: 'approvedContactRequest',
-                element: <ApprovedContactRequest></ApprovedContactRequest>
+                element: <AdminRoute><ApprovedContactRequest></ApprovedContactRequest></AdminRoute>
             }
         ]
     }

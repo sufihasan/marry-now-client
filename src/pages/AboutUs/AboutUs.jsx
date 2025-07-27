@@ -18,7 +18,7 @@ const AboutUs = () => {
                     <h2 className="text-2xl font-semibold text-center text-gray-800 flex items-center justify-center gap-2 mb-4">
                         <FaBullseye className="text-blue-600" /> Our Mission
                     </h2>
-                    <p className="text-gray-700 text-center">
+                    <p className="text-gray-700 text-justify md:text-center">
                         At <strong>MarryNow</strong>, we aim to help people find meaningful and lifelong relationships based on trust, faith, and compatibility.
                         We provide a platform that combines tradition with technology to help you find your perfect match.
                     </p>
@@ -28,7 +28,7 @@ const AboutUs = () => {
                     <h2 className="text-2xl font-semibold text-center text-gray-800 flex items-center justify-center gap-2 mb-4">
                         <FaCogs className="text-blue-600" /> What We Do
                     </h2>
-                    <p className="text-gray-700 text-center">
+                    <p className="text-gray-700 text-justify md:text-center">
                         We offer personalized biodata profiles, smart matchmaking tools, and verified user data to ensure a safe and successful journey toward marriage.
                     </p>
                 </section>
@@ -49,7 +49,7 @@ const AboutUs = () => {
                     <h2 className="text-2xl font-semibold text-center text-gray-800 flex items-center justify-center gap-2 mb-4">
                         <FaRocket className="text-purple-600" /> Our Vision
                     </h2>
-                    <p className="text-gray-700 text-center">
+                    <p className="text-gray-700 text-justify md:text-center ">
                         We want to be the most trusted digital marriage platform in Bangladesh and beyond — committed to halal relationships,
                         strong values, and long-term happiness.
                     </p>
@@ -61,13 +61,20 @@ const AboutUs = () => {
                     </h2>
                     <p className="text-gray-700 text-center">
                         If you have questions, please visit our{" "}
-                        <a href="/contact" className="text-blue-600 underline">
+                        {/* <a href="/contact" className="text-blue-600 underline">
                             Contact Page
-                        </a>{" "}
+                        </a> */}
+                        <Link to='/contactUs' className="text-blue-600 underline">
+                            Contact Page
+                        </Link>
+                        {" "}
                         or email us at{" "}
-                        <a href="mailto:support@marrynow.com" className="text-blue-600 underline">
+                        {/* <a href="mailto:support@marrynow.com" className="text-blue-600 underline">
                             support@marrynow.com
-                        </a>.
+                        </a> */}
+                        <Link to='mailto:support@marrynow.com ' className="text-blue-600 underline">
+                            support@marrynow.com
+                        </Link>.
                     </p>
                 </section>
 

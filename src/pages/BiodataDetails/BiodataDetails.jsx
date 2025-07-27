@@ -26,12 +26,20 @@ const BiodataDetails = () => {
     });
 
     // Get biodata by ID
-    const { data: biodata, isLoading } = useQuery({
+    const { data: biodata, isLoading, isError, error } = useQuery({
         queryKey: ['biodataDetails', biodataId],
         queryFn: async () => {
             const res = await axiosSecure.get(`/bioDatas/by-id/${biodataId}`);
             return res.data;
         },
+        retry: (failureCount, error) => {
+            const status = error?.response?.status;
+
+            // Retry only if status is not 400 or 404, and max 3 times
+            if (status === 400 || status === 404) return false;
+            return failureCount < 3;
+        }
+
     });
 
     // Get similar biodatas (max 3) by biodataType
@@ -63,6 +71,13 @@ const BiodataDetails = () => {
     });
 
     if (isLoading) return <p className="text-center my-10">Loading biodata...</p>;
+    if (isError) {
+        return (
+            <p className="text-center my-10 text-red-500">
+                {error?.response?.data?.error || 'Something went wrong fetching biodata.'}
+            </p>
+        );
+    }
     if (!biodata) return <p className="text-center my-10 text-red-500">Biodata not found.</p>;
 
     const handleAddToFavourites = () => {

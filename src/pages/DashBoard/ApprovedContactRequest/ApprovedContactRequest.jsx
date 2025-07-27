@@ -42,10 +42,13 @@ const ApprovedContactRequest = () => {
             <h2 className="text-xl font-bold mb-4">Pending Contact Requests</h2>
             <Table>
                 <TableHead>
-                    <TableHeadCell>Name</TableHeadCell>
-                    <TableHeadCell>Email</TableHeadCell>
-                    <TableHeadCell>Biodata ID</TableHeadCell>
-                    <TableHeadCell>Action</TableHeadCell>
+                    <TableRow>
+                        <TableHeadCell>Name</TableHeadCell>
+                        <TableHeadCell>Email</TableHeadCell>
+                        <TableHeadCell>Biodata ID</TableHeadCell>
+                        <TableHeadCell>Action</TableHeadCell>
+                    </TableRow>
+
                 </TableHead>
                 <TableBody className="divide-y">
                     {contactRequests.map((request) => (

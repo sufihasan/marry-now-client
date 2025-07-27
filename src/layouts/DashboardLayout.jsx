@@ -20,7 +20,7 @@ import {
     HiShoppingBag,
     HiUsers,
 } from "react-icons/hi";
-import { Link, Outlet, useNavigate } from "react-router";
+import { Link, Outlet } from "react-router";
 import { FaHammer, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiEditAlt, BiSolidData } from "react-icons/bi";
@@ -33,7 +33,7 @@ import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
 
 const SidebarContent = () => {
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const { role, roleLoading } = useUserRole();
     console.log(role);
 
@@ -44,7 +44,7 @@ const SidebarContent = () => {
         logOut()
             .then(result => {
                 console.log(result);
-                navigate('/');
+                // navigate('/');
             })
             .catch(error => {
                 console.log(error);
@@ -56,14 +56,14 @@ const SidebarContent = () => {
             <div className="flex h-full flex-col justify-between py-2">
                 <div>
                     {/* Mobile-only search input */}
-                    <form className="pb-3 md:hidden px-2">
+                    {/* <form className="pb-3 md:hidden px-2">
                         <TextInput
                             icon={HiSearch}
                             type="search"
                             placeholder="Search"
                             required
                         />
-                    </form>
+                    </form> */}
                     <SidebarItems>
                         <SidebarItemGroup>
 
@@ -163,7 +163,7 @@ const DashboardLayout = () => {
             </div>
 
             {/* Mobile toggle button */}
-            <div className="md:hidden fixed text-white  p-2 flex gap-2 bg-gray-400 w-full">
+            <div className="md:hidden fixed text-white z-20  p-2 flex gap-2 bg-gray-400 w-full">
                 <span className="" onClick={() => setOpenDrawer(true)}><RxHamburgerMenu size={24} /></span>
                 Dashboard
             </div>

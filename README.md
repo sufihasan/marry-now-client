@@ -1,12 +1,54 @@
-# React + Vite
+# Project Name (Website Name): MarryNow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### purpose:
+MarryNow is  a online platform will enable users to connect with potential life partners in an intuitive, user-friendly environment. 
+### liveUrl: https://marry-now.web.app/
 
-Currently, two official plugins are available:
+## Admin email: ali@gmail.com
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Admin pass: Ali123
 
-## Expanding the ESLint configuration
+### key features:
+- User login.
+- user register.
+- Create Bio-data.
+- User logout.
+- payment method with strips
+- Show 6 premium  bio-data in Home page
+- User dashboard
+- Admin dashboard
+- Private route
+- Admin Route
+- User can see which bio-data he created in View bio-data in dashboard
+- User can update which bio-data he create.
+- user can add marriage review in Got Married in dashboard.
+- user can  delete My contact request in My contact request in dashboard
+- Loading where need.
+- Responsive for Desktop, laptop, tab and mobile device
+- mongo db create , update, delete, patch, get operation 
+- view details of service.
+- Admin can some activities in admin dashboard like Admin dahboard, Manage users, Approve premium, Approve Contact Request, Success Story.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+
+### Npm packages that i use
+- react router
+- Flowbite react component
+- react icons
+- tailwinds css
+- React count-up
+- firebase
+- sweet alert 2
+- tanstack query
+- recharts
+- react hook form
+
+### Authentication :
+- Firebase
+
+### Backend :
+- node js
+- express js
+
+### Database: 
+- Mongodb

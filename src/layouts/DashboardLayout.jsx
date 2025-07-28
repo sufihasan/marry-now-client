@@ -35,19 +35,19 @@ import useUserRole from "../hooks/useUserRole";
 const SidebarContent = () => {
     // const navigate = useNavigate();
     const { role, roleLoading } = useUserRole();
-    console.log(role);
+    // console.log(role);
 
     const { logOut } = useAuth();
 
     const handleLogout = () => {
-        console.log('handle logout clink');
+        // console.log('handle logout clink');
         logOut()
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 // navigate('/');
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
             })
     }
 

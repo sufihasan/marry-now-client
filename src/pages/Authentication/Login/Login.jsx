@@ -22,11 +22,11 @@ const Login = () => {
     const from = location.state?.from || '/';
 
     const onSubmit = data => {
-        console.log(data); // data is from react hook form
+        // console.log(data); // data is from react hook form
 
         signIn(data.email, data.password)
             .then(result => {
-                console.log(result.user);
+                // console.log(result.user);
 
                 if (result.user) {
                     Swal.fire({
@@ -42,7 +42,13 @@ const Login = () => {
                 }
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong! Please recheck email and password",
+
+                });
             })
 
     };
@@ -50,7 +56,7 @@ const Login = () => {
     const handleGoogleSignIn = () => {
         signInWithGoogle()
             .then(async (result) => {
-                console.log(result.user);
+                // console.log(result.user);
                 const user = result.user;
                 if (result.user) {
                     Swal.fire({
@@ -73,13 +79,19 @@ const Login = () => {
                 }
 
                 const res = await axiosInstance.post('/users', userInfo);
-                console.log('user update info in social', res.data);
+                // console.log('user update info in social', res.data);
 
 
                 navigate(from)
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+
+                });
             })
     }
 

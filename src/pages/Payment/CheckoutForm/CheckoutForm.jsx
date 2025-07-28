@@ -22,7 +22,7 @@ const CheckoutForm = () => {
             return res.data;
         },
         onSuccess: async (data) => {
-            console.log(data.transactionId);
+            // console.log(data.transactionId);
             const transactionId = data.transactionId;
             // const clientSecret = data.clientSecret;
             Swal.fire({
@@ -59,7 +59,7 @@ const CheckoutForm = () => {
             return;
         }
         else {
-            console.log('payment method', paymentMethod);
+            // console.log('payment method', paymentMethod);
 
 
         }

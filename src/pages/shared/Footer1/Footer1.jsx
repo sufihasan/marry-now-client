@@ -21,10 +21,14 @@ const Footer1 = () => {
                             <h1 className='text-2xl font-semibold'>MarryNow</h1>
                         </div>
                         <FooterLinkGroup className='text-black'>
-                            <FooterLink ><Link to='/aboutUs'>About</Link></FooterLink>
+                            {/* <FooterLink ><Link to='/aboutUs'>About</Link></FooterLink>
                             <FooterLink ><Link to='/'>Privacy Policy</Link></FooterLink>
                             <FooterLink ><Link to='/'>Licensing</Link></FooterLink>
-                            <FooterLink ><Link to='/contactUs'>Contact</Link></FooterLink>
+                            <FooterLink ><Link to='/contactUs'>Contact</Link></FooterLink> */}
+                            <FooterLink as={Link} to="/aboutUs">About</FooterLink>
+                            <FooterLink as={Link} to="/">Privacy Policy</FooterLink>
+                            <FooterLink as={Link} to="/">Licensing</FooterLink>
+                            <FooterLink as={Link} to="/contactUs">Contact</FooterLink>
                         </FooterLinkGroup>
                     </div>
                     <FooterDivider />

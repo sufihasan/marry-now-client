@@ -28,7 +28,7 @@ const ManageUsers = () => {
         },
     });
 
-    console.log(users);
+    // console.log(users);
 
     // Fetch biodatas with pending status
     // const { data: pendingBiodatas = [] } = useQuery({

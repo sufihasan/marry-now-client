@@ -81,7 +81,7 @@ const CreateBioData = () => {
             createAt: new Date().toISOString()
         }
         mutation.mutate(bioData);
-        console.log('onsubmit', bioData);
+        // console.log('onsubmit', bioData);
     };
 
     return (

@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAxios from '../../../hooks/useAxios';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
@@ -20,12 +21,12 @@ const Register = () => {
     const from = location.state?.from || '/';
 
     const onSubmit = data => {
-        console.log(data); // data is come from react hook from
+        // console.log(data); // data is come from react hook from
 
         createUser(data.email, data.password)
             .then(async (result) => {
 
-                console.log(result.user);
+                // console.log(result.user);
 
                 // user info to send db
                 const userInfo = {
@@ -38,7 +39,7 @@ const Register = () => {
 
                 // use useAxios of axiosInstance to send data backend
                 const userRes = await axiosInstance.post('/users', userInfo);
-                console.log(userRes.data);
+                // console.log(userRes.data);
 
 
                 // update user profile
@@ -50,17 +51,35 @@ const Register = () => {
 
                 updateUserProfile(userProfile)
                     .then(() => {
-                        console.log('profile name and pic update');
+                        // console.log('profile name and pic update');
 
+                        Swal.fire({
+                            icon: "success",
+                            title: "Register Successfully",
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
                         navigate(from);
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong!",
+
+                        });
                     })
 
             })
             .catch(error => {
                 console.error(error);
+                Swal.fire({
+                    icon: "error",
+                    title: "Oops...",
+                    text: "Something went wrong!",
+
+                });
             })
     };
 

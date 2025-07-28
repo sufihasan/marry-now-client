@@ -19,7 +19,7 @@ const Forbidden = () => {
                     to="/dashboard"
                     className="inline-block bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base font-medium py-2 px-5 sm:px-6 rounded-lg transition duration-300"
                 >
-                    Back to Home
+                    Back to Dashboard
                 </Link>
             </div>
         </div>

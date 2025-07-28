@@ -17,8 +17,12 @@ const divisions = [
     'Dhaka', 'Chattagram', 'Rangpur', 'Barisal', 'Khulna', 'Mymensingh', 'Sylhet'
 ];
 
-const heights = ["5'0", "5'2", "5'4", "5'6", "5'8", "6'0"];
-const weights = ['45kg', '50kg', '55kg', '60kg', '65kg', '70kg'];
+// const heights = ["5'0", "5'2", "5'4", "5'6", "5'8", "6'0"];
+const heights = ["4'10", "4'11", "5'0", "5'1", "5'2", "5'3", "5'4", "5'5", "5'6", "5'7", "5'8", "5'9", "5'10", "5'11", "6'0"];
+// const weights = ['45kg', '50kg', '55kg', '60kg', '65kg', '70kg'];
+const weights = ["46kg", "48kg", "50kg", "51kg", "52kg", "53kg", "54kg", "55kg", "56kg", "57kg", "58kg",
+    "59kg", "60kg", "61kg", "62kg", "63kg", "64kg", "65kg", "66kg", "67kg", "68kg", "69kg",
+    "70kg", "72kg", "74kg", "76kg", "78kg", "80kg"];
 const races = ['Fair', 'Medium', 'Dark'];
 const occupations = ['Engineer', 'Doctor', 'Teacher', 'Student', 'Business', 'Other'];
 

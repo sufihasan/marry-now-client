@@ -61,7 +61,7 @@ const Biodatas = () => {
         <div className="flex flex-col lg:flex-row gap-4 p-4">
 
             {/* Filter Section */}
-            <div className="lg:w-1/4 w-full space-y-4">
+            <div className="lg:w-1/4 w-full space-y-4 dark:text-gray-200">
                 <div>
                     <label className="block mb-1 font-medium">Age Range</label>
                     <div className="flex gap-2">
@@ -70,14 +70,14 @@ const Biodatas = () => {
                             name="minAge"
                             placeholder="Min"
                             onChange={handleChange}
-                            className="w-1/2 p-2 border rounded"
+                            className="w-1/2 p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
                         />
                         <input
                             type="number"
                             name="maxAge"
                             placeholder="Max"
                             onChange={handleChange}
-                            className="w-1/2 p-2 border rounded"
+                            className="w-1/2 p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
                         />
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const Biodatas = () => {
                     <select
                         name="biodataType"
                         onChange={handleChange}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200"
                     >
                         <option value="">All</option>
                         <option value="Male">Male</option>
@@ -100,7 +100,7 @@ const Biodatas = () => {
                     <select
                         name="permanentDivision"
                         onChange={handleChange}
-                        className="w-full p-2 border rounded"
+                        className="w-full p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200"
                     >
                         <option value="">All</option>
                         {divisions.map((div) => (
@@ -123,13 +123,13 @@ const Biodatas = () => {
                         <p className="text-center col-span-full text-red-500 font-medium">No biodata found based on selected filters.</p>
                     ) : (
                         currentItems.map((biodata) => (
-                            <Card key={biodata._id} className="h-full">
+                            <Card key={biodata._id} className="h-full ">
                                 <img
                                     src={biodata.image}
                                     alt={biodata.name}
                                     className="h-48 w-full object-cover rounded"
                                 />
-                                <div className="mt-2 space-y-1">
+                                <div className="mt-2 space-y-1  dark:text-gray-200">
                                     <p className="font-bold">Biodata ID: {biodata.biodataId}</p>
                                     <p className="text-sm">Type: {biodata.biodataType}</p>
                                     <p className="text-sm">Division: {biodata.permanentDivision}</p>

@@ -1,14 +1,37 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../../context/AuthContext/AuthContext';
 import useAuth from '../../../hooks/useAuth';
-import { Avatar, Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbite-react";
-
+import { Avatar, DarkThemeToggle, Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbite-react";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false); //new
+
+    // const darkMode = true;
+    // const darkMode = false;
+
+    // dark mode code-----
+    const [darkMode, setDarkMode] = useState(() =>
+        localStorage.getItem('theme') === 'dark'
+    );
+
+
+    useEffect(() => {
+        const root = window.document.documentElement;
+
+        if (darkMode) {
+            root.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            // setDemode(true);
+        } else {
+            root.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            // setDemode(false);
+        }
+    }, [darkMode]);
 
 
     const handleLogOut = () => {
@@ -22,12 +45,17 @@ const Navbar = () => {
     }
 
     return (
-        <nav className="bg-white dark:bg-gray-900  w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+        <nav className="bg-white dark:bg-gray-700   w-full  start-0 border-b
+         border-gray-200 dark:border-gray-600 sticky top-0 z-50">
             <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
 
                 <Link to='/'>
                     <div className='flex items-center space-x-3 rtl:space-x-reverse'>
-                        <img src="https://i.ibb.co/d00NvDCZ/newlogobr.png" className="h-8" alt="logo" />
+                        {
+                            darkMode ? <img src="https://i.ibb.co.com/hRRpsMP4/logograydark.png" className="h-8 rounded-full" alt="logo" /> :
+                                <img src="https://i.ibb.co/d00NvDCZ/newlogobr.png" className="h-8" alt="logo" />
+                        }
+
                         <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">MarryNow</span>
 
                     </div>
@@ -37,7 +65,24 @@ const Navbar = () => {
                     <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">MarryNow</span>
 
                 </a> */}
-                <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+                <div className="flex items-center md:gap-10 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+
+                    {/* dark mode button */}
+                    <button
+                        onClick={() => setDarkMode(!darkMode)}
+                        className=" transition"
+                    >
+                        {darkMode ? (
+
+                            <FaSun className="text-orange-500 text-2xl" />
+
+                        ) : (
+
+                            <FaMoon className="text-yellow-400 text-2xl" />
+                        )}
+                    </button>
+
+                    {/* user profile icon */}
                     {
                         user ? <Dropdown
                             label={<Avatar alt="User settings" img={user?.photoURL} rounded />}
@@ -60,6 +105,8 @@ const Navbar = () => {
                     }
 
 
+
+
                     <button
                         //  data-collapse-toggle="navbar-sticky"
                         onClick={() => setIsMenuOpen(!isMenuOpen)} //  Toggle menu
@@ -71,25 +118,33 @@ const Navbar = () => {
                         </svg>
                     </button>
                 </div>
+
+
+
                 <div className={`${isMenuOpen ? 'block' : 'hidden'} items-center justify-between  w-full md:flex md:w-auto md:order-1`} id="navbar-sticky">
-                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+                    <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 ">
 
                         <li>
-                            <NavLink to='/' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' : 'md:hover:text-blue-500 block  py-2 px-3 md:p-0'}>Home</NavLink>
+                            <NavLink to='/' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+                                : 'md:hover:text-blue-500 dark:text-gray-200 block  py-2 px-3 md:p-0'}>Home</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/biodatas' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' : 'md:hover:text-blue-500 block  py-2 px-3 md:p-0'}>Biodatas</NavLink>
+                            <NavLink to='/biodatas' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+                                : 'md:hover:text-blue-500 dark:text-gray-200 block  py-2 px-3 md:p-0'}>Biodatas</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/aboutUs' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' : 'md:hover:text-blue-500 block  py-2 px-3 md:p-0'}> About Us</NavLink>
+                            <NavLink to='/aboutUs' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+                                : 'md:hover:text-blue-500 dark:text-gray-200 block  py-2 px-3 md:p-0'}> About Us</NavLink>
                         </li>
                         <li>
-                            <NavLink to='/contactUs' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' : 'md:hover:text-blue-500 block  py-2 px-3 md:p-0'}>Contact Us</NavLink>
+                            <NavLink to='/contactUs' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500  dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+                                : 'md:hover:text-blue-500 dark:text-gray-200 block  py-2 px-3 md:p-0'}>Contact Us</NavLink>
                         </li>
 
                         {
                             user ? <li>
-                                <NavLink to='/dashboard' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700' : 'md:hover:text-blue-500 block  py-2 px-3 md:p-0'}>Dashboard</NavLink>
+                                <NavLink to='/dashboard' className={({ isActive }) => isActive ? 'block text-blue-700 py-2 px-3  rounded-sm hover:bg-gray-100 md:hover:bg-transparent  md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700'
+                                    : 'md:hover:text-blue-500 dark:text-gray-200 block  py-2 px-3 md:p-0'}>Dashboard</NavLink>
                             </li> : ''
                         }
 
@@ -100,6 +155,12 @@ const Navbar = () => {
                         </li> */}
                     </ul>
                 </div>
+
+                {/* <div className='md:order-1'>
+                    <p>dark</p>
+                </div> */}
+
+
             </div>
         </nav>
     );

@@ -8,11 +8,11 @@ import { ImManWoman } from "react-icons/im";
 const HowItWorks = () => {
     return (
         <div className='w-11/12 mx-auto mt-10'>
-            <h1 className='text-2xl text-center font-semibold mb-5'>How MarryNow works</h1>
+            <h1 className='text-2xl text-center font-semibold mb-5 dark:text-gray-200'>How MarryNow works</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 <Card className="max-w-sm" horizontal>
-                    <CgProfile size={50} className='mx-auto'></CgProfile>
-                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                    <CgProfile size={50} className='mx-auto dark:text-gray-200'></CgProfile>
+                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-200">
                         Make Bio Data
                     </h5>
                     <p className="font-normal text-justify text-gray-700 dark:text-gray-400">
@@ -20,8 +20,8 @@ const HowItWorks = () => {
                     </p>
                 </Card>
                 <Card className="max-w-sm" horizontal>
-                    <IoSearch size={50} className='mx-auto'></IoSearch>
-                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                    <IoSearch size={50} className='mx-auto dark:text-gray-200'></IoSearch>
+                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-200">
                         Search Biodata
                     </h5>
                     <p className="font-normal text-justify text-gray-700 dark:text-gray-400">
@@ -30,8 +30,8 @@ const HowItWorks = () => {
                 </Card>
 
                 <Card className="max-w-sm" horizontal>
-                    <BsTelephoneOutbound size={50} className='mx-auto'></BsTelephoneOutbound>
-                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                    <BsTelephoneOutbound size={50} className='mx-auto dark:text-gray-200'></BsTelephoneOutbound>
+                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-200">
                         Contact him/her
                     </h5>
                     <p className="font-normal text-justify text-gray-700 dark:text-gray-400">
@@ -39,11 +39,11 @@ const HowItWorks = () => {
                     </p>
                 </Card>
                 <Card className="max-w-sm" horizontal>
-                    <ImManWoman size={50} className='mx-auto'></ImManWoman>
-                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-white">
+                    <ImManWoman size={50} className='mx-auto dark:text-gray-200'></ImManWoman>
+                    <h5 className="text-xl text-center font-bold tracking-tight text-gray-900 dark:text-gray-200">
                         Complete the Marriage
                     </h5>
-                    <p className="font-normal text-justify text-gray-700 dark:text-gray-400">
+                    <p className="font-normal text-justify text-gray-700 dark:text-gray-300">
                         If you like the biodata and conversations, please take full responsibility to investigate properly and proceed with  marriage.
 
                     </p>

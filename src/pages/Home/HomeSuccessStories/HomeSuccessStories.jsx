@@ -21,13 +21,13 @@ const HomeSuccessStories = () => {
 
     return (
         <div className='w-11/12 mx-auto mt-10'>
-            <h1 className='text-center text-3xl font-semibold'>Success Story</h1>
+            <h1 className='text-center text-3xl font-semibold dark:text-gray-200'>Success Story</h1>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6  my-5">
                 {stories.map((story, i) => (
                     <Card key={i} className="shadow-lg">
                         <img src={story.coupleImage} alt="Couple" className="rounded-lg h-48 w-full " />
                         <div className="text-center mt-3">
-                            <p className="text-sm text-gray-500">Marriage Date: {new Date(story.marriageDate).toLocaleDateString()}</p>
+                            <p className="text-sm text-gray-500 dark:text-gray-200">Marriage Date: {new Date(story.marriageDate).toLocaleDateString()}</p>
                             <div className='flex justify-center mt-3'>
                                 <Rating >
                                     {Array.from({ length: 5 }).map((_, index) => (
@@ -35,7 +35,7 @@ const HomeSuccessStories = () => {
                                     ))}
                                 </Rating>
                             </div>
-                            <p className="text-gray-600 mt-2 text-justify">{story.review}</p>
+                            <p className="text-gray-600 dark:text-gray-200 mt-2 text-justify">{story.review}</p>
                         </div>
                     </Card>
                 ))}

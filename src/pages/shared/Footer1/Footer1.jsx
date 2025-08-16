@@ -7,7 +7,7 @@ const Footer1 = () => {
     return (
         <div>
             <Footer >
-                <div className="w-full text-center bg-gray-300 py-10">
+                <div className="w-full text-center bg-gray-300 dark:bg-gray-800 py-10">
                     {/* w-full justify-between sm:flex sm:items-center sm:justify-between */}
                     <div className="w-full flex flex-col items-center">
                         {/* <FooterBrand
@@ -18,7 +18,7 @@ const Footer1 = () => {
                         /> */}
                         <div className='flex items-center gap-2'>
                             <img className='w-10 h-10' src="https://i.ibb.co/d00NvDCZ/newlogobr.png" alt="" />
-                            <h1 className='text-2xl font-semibold'>MarryNow</h1>
+                            <h1 className='text-2xl font-semibold dark:text-gray-200'>MarryNow</h1>
                         </div>
                         <FooterLinkGroup className='text-black'>
                             {/* <FooterLink ><Link to='/aboutUs'>About</Link></FooterLink>
@@ -34,7 +34,7 @@ const Footer1 = () => {
                     <FooterDivider />
                     {/* <Link className='' to='/'><FooterCopyright by="MarryNow™" year={2025} /></Link> */}
                     {/* <p>Alright reserved by Marrynow</p> */}
-                    <p className='text-sm'>Copyright © {new Date().getFullYear()} - All right reserved by MarryNow Ltd</p>
+                    <p className='text-sm dark:text-gray-200'>Copyright © {new Date().getFullYear()} - All right reserved by MarryNow Ltd</p>
                 </div>
             </Footer>
         </div>

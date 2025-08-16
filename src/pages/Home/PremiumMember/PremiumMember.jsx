@@ -19,9 +19,9 @@ const PremiumMember = () => {
     });
 
     return (
-        <div className="p-4 max-w-7xl mx-auto">
+        <div className="p-4 max-w-7xl mx-auto mt-10">
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold">Premium Members</h2>
+                <h2 className="text-xl font-semibold dark:text-gray-200">Premium Members</h2>
                 <Select
                     value={sortOrder}
                     onChange={(e) => setSortOrder(e.target.value)}
@@ -43,7 +43,7 @@ const PremiumMember = () => {
                                 alt={member.name}
                                 className="h-56 w-full   object-cover  rounded-t-lg"
                             />
-                            <div className="p-4">
+                            <div className="p-4 dark:text-gray-200">
                                 <p><strong>Biodata ID:</strong> {member.biodataId}</p>
                                 <p><strong>Type:</strong> {member.biodataType}</p>
                                 <p><strong>Division:</strong> {member.permanentDivision}</p>

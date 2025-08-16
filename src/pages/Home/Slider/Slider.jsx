@@ -21,7 +21,8 @@ const Slider = () => {
     };
 
     return (
-        <div className='w-full md:w-3/4 mx-auto mb-5 pt-5'>
+        // md:w-3/4
+        <div className='w-full md:w-11/12  mx-auto mb-5 mt-5'>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}
@@ -37,15 +38,15 @@ const Slider = () => {
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
                 className="mySwiper"
             >
-                <SwiperSlide><img className='border relative h-[200px]' src="https://i.ibb.co/v6ws1PGs/marrage1.jpg" alt="111" />
-                    <span className='z-10 absolute bg-gray-700/30 text-white top-40'>This is new life</span></SwiperSlide>
+                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/v6ws1PGs/marrage1.jpg" alt="111" />
+                    <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>This is new life</span></SwiperSlide>
 
-                <SwiperSlide><img className='border relative h-[200px]' src="https://i.ibb.co/2zwTyxS/marrage2.jpg" alt="111" />
-                    <span className='z-10 absolute bg-gray-700/30 text-white top-40'>This is your time to chose partner</span>
+                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/2zwTyxS/marrage2.jpg" alt="111" />
+                    <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>This is your time to chose partner</span>
                 </SwiperSlide>
 
-                <SwiperSlide><img className='border relative h-[200px]' src="https://i.ibb.co/k2qTBMrH/marrage3.jpg" alt="111" />
-                    <span className='z-10 absolute bg-gray-700/30 text-white top-40'>Our system is help you find partner</span>
+                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/k2qTBMrH/marrage3.jpg" alt="111" />
+                    <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>Our system is help you find partner</span>
                 </SwiperSlide>
                 {/* <SwiperSlide><img className='border' src="https://i.ibb.co/PGhB8s3c/reading-final.png" alt="111" /></SwiperSlide> */}
 

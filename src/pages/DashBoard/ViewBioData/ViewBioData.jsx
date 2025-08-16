@@ -56,9 +56,11 @@ const ViewBioData = () => {
         <div>
             {
                 isLoading || loading ? <p className="text-center mt-10">Loading biodata...</p> :
-                    biodata.name ? <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-                        <h1 className='text-center text-2xl font-semibold mb-3'>My Biodata</h1>
+                    biodata.name ? <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 dark:text-gray-200">
+                        {/* <h1 className='text-center text-2xl font-semibold mb-3'>My Biodata</h1> */}
                         <Card className="p-4 md:p-8">
+                            <h1 className='text-center text-2xl font-semibold mb-3'>My Biodata</h1>
+
                             {/* Profile Image & Name */}
                             <div className="flex flex-col items-center text-center">
                                 <img
@@ -67,7 +69,7 @@ const ViewBioData = () => {
                                     className="w-28 h-28 md:w-32 md:h-32 rounded-full object-cover mb-4 border-2 border-gray-300"
                                 />
                                 <h2 className="text-xl md:text-2xl font-bold">{biodata.name}</h2>
-                                <p className="text-gray-500 text-sm">{biodata.email}</p>
+                                <p className="text-gray-500 dark:text-gray-400 text-sm">{biodata.email}</p>
                             </div>
 
                             {/* Biodata Information */}

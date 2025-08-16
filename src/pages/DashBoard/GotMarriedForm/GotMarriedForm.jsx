@@ -31,8 +31,9 @@ const GotMarriedForm = () => {
     };
 
     return (
-        <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mt-5 mx-auto space-y-4 p-6 bg-white shadow rounded">
-            <h2 className="text-2xl font-bold text-center">Share Your Marriage Story</h2>
+        <form onSubmit={handleSubmit(onSubmit)} className="max-w-xl mt-5 mx-auto space-y-4 p-6
+         bg-white dark:bg-gray-800 shadow rounded">
+            <h2 className="text-2xl font-bold text-center text-gray-200">Share Your Marriage Story</h2>
 
             <div>
                 <Label>Self Biodata ID</Label>

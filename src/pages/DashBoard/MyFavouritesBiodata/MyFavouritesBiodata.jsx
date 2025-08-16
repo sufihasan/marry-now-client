@@ -58,7 +58,7 @@ const MyFavouritesBiodata = () => {
             {favouriteBiodatas.length > 0 ?
 
                 < div className="overflow-x-auto p-4" >
-                    <h2 className="text-2xl font-semibold mb-4 text-center">My Favourite Biodatas</h2>
+                    <h2 className="text-2xl font-semibold mb-4 text-center dark:text-gray-200">My Favourite Biodatas</h2>
                     <Table hoverable>
                         <TableHead>
                             <TableRow>
@@ -78,7 +78,7 @@ const MyFavouritesBiodata = () => {
                                     <TableCell>{biodata.permanentDivision}</TableCell>
                                     <TableCell>{biodata.occupation}</TableCell>
                                     <TableCell>
-                                        <Button color="red" size="xs" onClick={() => handleDelete(biodata.biodataId)}>
+                                        <Button color='none' className='bg-red-500 dark:bg-red-400 text-white' size="xs" onClick={() => handleDelete(biodata.biodataId)}>
                                             Delete
                                         </Button>
                                     </TableCell>

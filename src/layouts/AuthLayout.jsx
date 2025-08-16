@@ -4,7 +4,7 @@ import Navbar from '../pages/shared/Navbar/Navbar';
 
 const AuthLayout = () => {
     return (
-        <div>
+        <div className='dark:bg-gray-800 min-h-screen'>
             <Navbar></Navbar>
             <Outlet></Outlet>
         </div>

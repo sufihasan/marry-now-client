@@ -84,10 +84,10 @@ const Register = () => {
     };
 
     return (
-        <div className=''>
+        <div className='pb-10'>
 
             <Card className="max-w-sm mx-auto mt-10">
-                <h1 className='text-3xl text-center font-semibold'>Register Now</h1>
+                <h1 className='text-3xl text-center font-semibold dark:text-white'>Register Now</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
                     <div>
                         <div className="mb-2 block">

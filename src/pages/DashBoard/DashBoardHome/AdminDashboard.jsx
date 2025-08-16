@@ -37,33 +37,33 @@ const AdminDashboard = () => {
 
     return (
         <div className="px-1 py-2 max-w-6xl mx-auto">
-            <h2 className="text-3xl font-bold text-center mb-8">Admin Dashboard</h2>
+            <h2 className="text-3xl font-bold text-center mb-8 dark:text-gray-200">Admin Dashboard</h2>
             <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-10">
-                <Card className='rounded-full text-center'>
+                <Card className='rounded-full text-center dark:text-gray-200'>
                     <img className='w-20 h-12 mx-auto' src="https://i.ibb.co.com/qLcbJpS2/successstaffs.png" alt="" />
                     <p className="text-xl  font-semibold">Total Biodata</p>
                     <p className='font-bold text-xl'>{totalBiodata}</p>
                 </Card>
 
-                <Card className='rounded-full text-center'>
+                <Card className='rounded-full text-center dark:text-gray-200'>
                     <img className='w-20 h-20 mx-auto' src="https://i.ibb.co/Z0QS7zx/man.png" alt="" />
                     <p className="text-xl font-semibold">Male Biodata</p>
                     <p className='font-bold text-xl'>{maleBiodata}</p>
                 </Card>
 
-                <Card className='rounded-full text-center'>
+                <Card className='rounded-full text-center dark:text-gray-200'>
                     <img className='w-20 h-20 mx-auto' src="https://i.ibb.co/YT2Q1kxB/wonam.png" alt="" />
                     <p className="text-xl font-semibold">Female Biodata</p>
                     <p className='font-bold text-xl'>{femaleBiodata}</p>
                 </Card>
 
-                <Card className='rounded-full text-center'>
+                <Card className='rounded-full text-center dark:text-gray-200'>
                     <img className='w-20 h-20 mx-auto' src="https://i.ibb.co/9k93pf42/premium.jpg" alt="" />
                     <p className="text-xl font-semibold">Premium Biodata</p>
                     <p className='font-bold text-xl'>{premiumBiodata}</p>
                 </Card>
 
-                <Card className='rounded-full text-center'>
+                <Card className='rounded-full text-center dark:text-gray-200'>
                     <img className='w-20 h-20 mx-auto' src="https://i.ibb.co/Cpdq7PQ6/dolar.png" alt="" />
                     <p className="text-xl font-semibold">Total Revenue</p>
                     <p className='font-bold text-xl'>${totalRevenue}</p>
@@ -72,7 +72,7 @@ const AdminDashboard = () => {
             </div>
 
             <div className="mt-10">
-                <h3 className="text-xl  font-semibold text-center mb-4">Biodata & Revenue Overview</h3>
+                <h3 className="text-xl  font-semibold text-center mb-4 dark:text-gray-200">Biodata & Revenue Overview</h3>
                 <div className=''>
                     <ResponsiveContainer width="100%" height={420}>
                         <PieChart>

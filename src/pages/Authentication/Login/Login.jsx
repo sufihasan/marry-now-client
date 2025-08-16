@@ -98,7 +98,7 @@ const Login = () => {
     return (
         <div>
             <Card className="max-w-sm mx-auto mt-10">
-                <h1 className='text-3xl text-center font-semibold'>Login Now</h1>
+                <h1 className='text-3xl text-center font-semibold dark:text-gray-200'>Login Now</h1>
                 <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4">
 
                     <div>
@@ -131,7 +131,7 @@ const Login = () => {
                                </div> */}
                     <Button type="submit">Login</Button>
 
-                    <p><small>New to this website Please
+                    <p><small className='dark:text-gray-200'>New to this website Please
                         <Link state={{ from }} className='text-blue-600 ml-2 underline' to='/register'>Register</Link>
                     </small></p>
 

@@ -39,7 +39,7 @@ const ApprovedContactRequest = () => {
     font-semibold text-2xl'>No Pending Contact Requests</h1>
     return (
         <div className="overflow-x-auto p-4">
-            <h2 className="text-xl font-bold mb-4">Pending Contact Requests</h2>
+            <h2 className="text-xl font-bold mb-4 text-center dark:text-gray-200">Pending Contact Requests</h2>
             <Table>
                 <TableHead>
                     <TableRow>
@@ -52,7 +52,7 @@ const ApprovedContactRequest = () => {
                 </TableHead>
                 <TableBody className="divide-y">
                     {contactRequests.map((request) => (
-                        <TableRow key={request._id}>
+                        <TableRow key={request._id} className='dark:bg-gray-800'>
                             <TableCell>{request.userName}</TableCell>
                             <TableCell>{request.userEmail}</TableCell>
                             <TableCell>{request.biodataId}</TableCell>

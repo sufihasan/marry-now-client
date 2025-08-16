@@ -116,7 +116,7 @@ const ManageUsers = () => {
                 </div> :
 
                     <div className="p-4">
-                        <h2 className="text-2xl font-semibold mb-4 ">Manage Users</h2>
+                        <h2 className="text-2xl font-semibold mb-4 dark:text-gray-200">Manage Users</h2>
 
                         <TextInput
                             placeholder="Search by name..."

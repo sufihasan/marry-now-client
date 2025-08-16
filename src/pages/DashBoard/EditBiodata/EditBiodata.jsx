@@ -92,8 +92,8 @@ const EditBiodata = () => {
     }
 
     return (
-        <div className="max-w-3xl mx-auto px-4 py-8">
-            <h2 className="text-2xl font-bold mb-6">Edit Your Biodata</h2>
+        <div className="max-w-3xl mx-auto px-4 py-8 dark:bg-gray-800 md:px-5 rounded-xl">
+            <h2 className="text-2xl font-bold mb-6 text-center dark:text-gray-200">Edit Your Biodata</h2>
             <form onSubmit={handleSubmit(onSubmit)} className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                     <Label>Biodata Type *</Label>

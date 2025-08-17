@@ -2,8 +2,8 @@ import React from 'react';
 
 const UserDashboard = () => {
     return (
-        <div>
-            this is user dashboard
+        <div className='dark:text-gray-200'>
+            This is user dashboard
         </div>
     );
 };

@@ -25,6 +25,7 @@ import PrivateRoute from "../routes/PrivateRoute";
 import Forbidden from "../pages/Forbidden/Forbidden";
 import AdminRoute from "../routes/AdminRoute";
 import ErrorPage from "../pages/ErrorPage/ErrorPage";
+import Profile from "../pages/DashBoard/Profile/Profile";
 
 export const router = createBrowserRouter([
     {
@@ -130,6 +131,12 @@ export const router = createBrowserRouter([
             {
                 path: 'approvedContactRequest',
                 element: <AdminRoute><ApprovedContactRequest></ApprovedContactRequest></AdminRoute>
+            },
+
+            // common in dashboard
+            {
+                path: 'profile',
+                element: <Profile></Profile>
             }
         ]
     },

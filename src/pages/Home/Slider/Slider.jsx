@@ -38,14 +38,14 @@ const Slider = () => {
                 onAutoplayTimeLeft={onAutoplayTimeLeft}
                 className="mySwiper"
             >
-                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/v6ws1PGs/marrage1.jpg" alt="111" />
+                <SwiperSlide className='rounded'><img className=' relative h-[200px] rounded' src="https://i.ibb.co/v6ws1PGs/marrage1.jpg" alt="111" />
                     <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>This is new life</span></SwiperSlide>
 
-                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/2zwTyxS/marrage2.jpg" alt="111" />
+                <SwiperSlide className='rounded'><img className=' relative h-[200px] rounded' src="https://i.ibb.co/2zwTyxS/marrage2.jpg" alt="111" />
                     <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>This is your time to chose partner</span>
                 </SwiperSlide>
 
-                <SwiperSlide><img className=' relative h-[200px]' src="https://i.ibb.co/k2qTBMrH/marrage3.jpg" alt="111" />
+                <SwiperSlide className='rounded'><img className=' relative h-[200px] rounded' src="https://i.ibb.co/k2qTBMrH/marrage3.jpg" alt="111" />
                     <span className='z-10 absolute p-2 bg-gray-700/25 text-white top-40'>Our system is help you find partner</span>
                 </SwiperSlide>
                 {/* <SwiperSlide><img className='border' src="https://i.ibb.co/PGhB8s3c/reading-final.png" alt="111" /></SwiperSlide> */}

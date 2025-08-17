@@ -15,6 +15,7 @@ import {
     HiCollection,
     HiInformationCircle,
     HiLogin,
+    HiOutlineUser,
     HiPencil,
     HiSearch,
     HiShoppingBag,
@@ -31,6 +32,7 @@ import { FcContacts } from "react-icons/fc";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
+import { CgProfile } from "react-icons/cg";
 import { DarkContext } from "../context/DarkContext/DarkContext";
 
 const SidebarContent = () => {
@@ -153,6 +155,9 @@ const SidebarContent = () => {
                         </SidebarItemGroup>
 
                         <SidebarItemGroup>
+                            <SidebarItem icon={CgProfile} as={Link} to="/dashboard/profile">
+                                Profile
+                            </SidebarItem>
 
                             <SidebarItem
                                 onClick={handleLogout}

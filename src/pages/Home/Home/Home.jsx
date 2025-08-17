@@ -8,6 +8,7 @@ import useAxios from '../../../hooks/useAxios';
 import HomeSuccessStories from '../HomeSuccessStories/HomeSuccessStories';
 import CreateBoiDataHome from '../CreateBoiDataHome/CreateBoiDataHome';
 import OurTeam from '../OurTeam/OurTeam';
+import MarriageBenefits from '../MarriageBenefits/MarriageBenefits';
 
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
 
             <CreateBoiDataHome></CreateBoiDataHome>
             <OurTeam></OurTeam>
+            <MarriageBenefits></MarriageBenefits>
 
             <HomeSuccessStories></HomeSuccessStories>
 

@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import { Button, Card, Spinner } from 'flowbite-react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 // import axios from 'axios';
 import useAxios from '../../../hooks/useAxios';
 import Swal from 'sweetalert2';
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 const Profile = () => {
     const { user, loading } = useAuth();
 
     const queryClient = useQueryClient();
     const axiosInstance = useAxios();
+    const { bgDarkw, textDarkW } = use(DarkContext);
 
     // Fetch user data
     const { data: profile, isLoading } = useQuery({
@@ -33,6 +35,8 @@ const Profile = () => {
             Swal.fire({
                 title: "Good job!",
                 text: "Profile updated successfully!",
+                color: textDarkW,
+                background: bgDarkw,
                 icon: "success"
             });
         },
@@ -41,6 +45,8 @@ const Profile = () => {
             Swal.fire({
                 title: "Good job!",
                 text: "Profile not update, error",
+                color: textDarkW,
+                background: bgDarkw,
                 icon: "warning"
             });
         },

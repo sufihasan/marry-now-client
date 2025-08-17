@@ -59,10 +59,6 @@ export const router = createBrowserRouter([
             {
                 path: '/forbidden',
                 Component: Forbidden
-            },
-            {
-                path: '*',
-                element: <ErrorPage></ErrorPage>
             }
         ]
     },
@@ -136,5 +132,10 @@ export const router = createBrowserRouter([
                 element: <AdminRoute><ApprovedContactRequest></ApprovedContactRequest></AdminRoute>
             }
         ]
+    },
+
+    {
+        path: '*',
+        element: <ErrorPage></ErrorPage>
     }
 ]);

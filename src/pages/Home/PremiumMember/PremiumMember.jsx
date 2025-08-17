@@ -41,7 +41,7 @@ const PremiumMember = () => {
                             <img
                                 src={member.image}
                                 alt={member.name}
-                                className="h-56 w-full   object-cover  rounded-t-lg"
+                                className="h-56 w-full     rounded-t-lg"
                             />
                             <div className="p-4 dark:text-gray-200">
                                 <p><strong>Biodata ID:</strong> {member.biodataId}</p>

@@ -52,7 +52,7 @@ const ApprovedContactRequest = () => {
                 </TableHead>
                 <TableBody className="divide-y">
                     {contactRequests.map((request) => (
-                        <TableRow key={request._id} className='dark:bg-gray-800'>
+                        <TableRow key={request._id} className='dark:bg-gray-800 dark:border-gray-700'>
                             <TableCell>{request.userName}</TableCell>
                             <TableCell>{request.userEmail}</TableCell>
                             <TableCell>{request.biodataId}</TableCell>

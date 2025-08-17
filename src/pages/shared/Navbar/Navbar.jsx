@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React, { use, useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../../context/AuthContext/AuthContext';
 import useAuth from '../../../hooks/useAuth';
 import { Avatar, DarkThemeToggle, Dropdown, DropdownDivider, DropdownHeader, DropdownItem } from "flowbite-react";
 import { FaSun, FaMoon } from "react-icons/fa";
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 const Navbar = () => {
 
     const { user, logOut } = useAuth();
     const [isMenuOpen, setIsMenuOpen] = useState(false); //new
+    const { setDemode } = use(DarkContext);
 
     // const darkMode = true;
     // const darkMode = false;
@@ -25,13 +27,13 @@ const Navbar = () => {
         if (darkMode) {
             root.classList.add('dark');
             localStorage.setItem('theme', 'dark');
-            // setDemode(true);
+            setDemode(true);
         } else {
             root.classList.remove('dark');
             localStorage.setItem('theme', 'light');
-            // setDemode(false);
+            setDemode(false);
         }
-    }, [darkMode]);
+    }, [darkMode, setDemode]);
 
 
     const handleLogOut = () => {

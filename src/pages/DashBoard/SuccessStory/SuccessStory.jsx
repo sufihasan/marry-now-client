@@ -36,7 +36,7 @@ const SuccessStory = () => {
         <div>
             {
                 stories.length > 0 ? <div className="overflow-x-auto">
-                    <h2 className="text-xl font-bold mb-4">Success Stories</h2>
+                    <h2 className="text-xl font-bold mb-4 text-center dark:text-gray-200">Success Stories</h2>
                     <Table>
                         <TableHead>
                             <TableRow>
@@ -45,9 +45,9 @@ const SuccessStory = () => {
                                 <TableHeadCell>Actions</TableHeadCell>
                             </TableRow>
                         </TableHead>
-                        <TableBody>
+                        <TableBody className="divide-y">
                             {stories.map((story) => (
-                                <TableRow key={story._id}>
+                                <TableRow key={story._id} className="dark:border-gray-700 dark:bg-gray-800">
                                     <TableCell>{story.male?.biodataId}</TableCell>
                                     <TableCell>{story.female?.biodataId}</TableCell>
                                     <TableCell>

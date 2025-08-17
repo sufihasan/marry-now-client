@@ -105,11 +105,11 @@ const BiodataDetails = () => {
         <div className="max-w-4xl mx-auto px-4 py-10">
             <Card>
                 <div className="flex flex-col items-center text-center">
-                    <h2 className="text-2xl font-bold mb-4">{biodata.name}'s Biodata</h2>
+                    <h2 className="text-2xl font-bold mb-4 dark:text-gray-200">{biodata.name}'s Biodata</h2>
                     <img src={biodata.image} alt={biodata.name} className="w-40 h-40 rounded mb-4" />
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2'>
+                <div className='grid grid-cols-1 md:grid-cols-2 dark:text-gray-200'>
                     <p><strong>Biodata ID:</strong> {biodata.biodataId}</p>
                     <p><strong>Biodata Type:</strong> {biodata.biodataType}</p>
                     <p><strong>Date of Birth:</strong> {biodata.dob}</p>
@@ -131,8 +131,8 @@ const BiodataDetails = () => {
                 {/* Contact Info Logic */}
                 {isPremiumUser ? (
                     <>
-                        <p><strong>Email:</strong> {biodata.email}</p>
-                        <p><strong>Mobile:</strong> {biodata.mobile}</p>
+                        <p className='dark:text-gray-200'><strong>Email:</strong> {biodata.email}</p>
+                        <p className='dark:text-gray-200'><strong>Mobile:</strong> {biodata.mobile}</p>
                     </>
                 ) : (
                     <Button onClick={handleRequestContact} className="my-2">
@@ -146,12 +146,12 @@ const BiodataDetails = () => {
             </Card>
 
             {/* Similar Biodatas */}
-            <div className="mt-10">
+            <div className="mt-10 dark:text-gray-200">
                 <h3 className="text-xl font-semibold mb-4 text-center">Similar Biodatas</h3>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     {similarBiodatas.map((similar) => (
                         <Card key={similar._id}>
-                            <img src={similar.image} alt={similar.name} className="w-full h-32 object-cover rounded" />
+                            <img src={similar.image} alt={similar.name} className="w-full h-32  rounded" />
                             <h4 className="text-lg font-medium">{similar.name}</h4>
                             <p>Biodata ID: {similar.biodataId}</p>
                             <p>Age: {similar.age}</p>

@@ -52,7 +52,7 @@ const ApprovedPremium = () => {
 
     return (
         <div className="overflow-x-auto px-4 py-10">
-            <h2 className="text-xl font-bold mb-4 text-center">Pending Premium Biodata Requests</h2>
+            <h2 className="text-xl font-bold mb-4 text-center dark:text-gray-200">Pending Premium Biodata Requests</h2>
             <Table hoverable>
                 <TableHead>
                     <TableRow>

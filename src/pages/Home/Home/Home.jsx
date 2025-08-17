@@ -6,6 +6,8 @@ import HowItWorks from '../HowItWorks/HowItWorks';
 import SuccessCounter from '../SuccessCounter/SuccessCounter';
 import useAxios from '../../../hooks/useAxios';
 import HomeSuccessStories from '../HomeSuccessStories/HomeSuccessStories';
+import CreateBoiDataHome from '../CreateBoiDataHome/CreateBoiDataHome';
+import OurTeam from '../OurTeam/OurTeam';
 
 
 const Home = () => {
@@ -36,6 +38,9 @@ const Home = () => {
                 totalGirls={totalGirls}
                 totalMarriages={totalMarriages}
             ></SuccessCounter>}
+
+            <CreateBoiDataHome></CreateBoiDataHome>
+            <OurTeam></OurTeam>
 
             <HomeSuccessStories></HomeSuccessStories>
 

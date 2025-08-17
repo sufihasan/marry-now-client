@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 // import { Outlet } from "react-router-dom";
 import {
     Button,
@@ -21,7 +21,7 @@ import {
     HiUsers,
 } from "react-icons/hi";
 import { Link, Outlet } from "react-router";
-import { FaHammer, FaHome, FaUser, FaUsers } from "react-icons/fa";
+import { FaHammer, FaHome, FaMoon, FaSun, FaUser, FaUsers } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { BiEditAlt, BiSolidData } from "react-icons/bi";
 import { GrContact, GrFavorite } from "react-icons/gr";
@@ -31,6 +31,7 @@ import { FcContacts } from "react-icons/fc";
 import { LuLogOut } from "react-icons/lu";
 import useAuth from "../hooks/useAuth";
 import useUserRole from "../hooks/useUserRole";
+import { DarkContext } from "../context/DarkContext/DarkContext";
 
 const SidebarContent = () => {
     // const navigate = useNavigate();
@@ -38,6 +39,26 @@ const SidebarContent = () => {
     // console.log(role);
 
     const { logOut } = useAuth();
+    const { setDemode } = use(DarkContext);
+
+    // dark mode code-----
+    const [darkMode, setDarkMode] = useState(() =>
+        localStorage.getItem('theme') === 'dark'
+    );
+
+    useEffect(() => {
+        const root = window.document.documentElement;
+
+        if (darkMode) {
+            root.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+            setDemode(true);
+        } else {
+            root.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+            setDemode(false);
+        }
+    }, [darkMode, setDemode]);
 
     const handleLogout = () => {
         // console.log('handle logout clink');
@@ -139,6 +160,26 @@ const SidebarContent = () => {
                                 className="cursor-pointer"
                             >
                                 Logout
+                            </SidebarItem>
+                            <SidebarItem>
+                                {/* <p>Dark</p> */}
+                                {/* dark mode button */}
+                                <button
+                                    onClick={() => setDarkMode(!darkMode)}
+                                    className="transition"
+                                >
+                                    {darkMode ? (
+                                        <span className="flex gap-2 cursor-pointer">
+                                            <FaSun className="text-orange-500 text-2xl" /> <span>Move to Light</span>
+                                        </span>
+
+                                    ) : (
+                                        <span className="flex gap-2 cursor-pointer">
+                                            <FaMoon className="text-yellow-400 text-2xl" /> <span>Move to Dark</span>
+                                        </span>
+
+                                    )}
+                                </button>
                             </SidebarItem>
                         </SidebarItemGroup>
                     </SidebarItems>

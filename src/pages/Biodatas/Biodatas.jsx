@@ -70,14 +70,14 @@ const Biodatas = () => {
                             name="minAge"
                             placeholder="Min"
                             onChange={handleChange}
-                            className="w-1/2 p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
+                            className="w-1/2 p-2 border border-gray-300 dark:border-gray-500 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
                         />
                         <input
                             type="number"
                             name="maxAge"
                             placeholder="Max"
                             onChange={handleChange}
-                            className="w-1/2 p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
+                            className="w-1/2 p-2 border border-gray-300 dark:border-gray-500 rounded dark:bg-gray-600 dark:text-gray-200 dark:placeholder-gray-200"
                         />
                     </div>
                 </div>
@@ -87,7 +87,7 @@ const Biodatas = () => {
                     <select
                         name="biodataType"
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200"
+                        className="w-full p-2 border border-gray-300 dark:border-gray-500 rounded dark:bg-gray-600 dark:text-gray-200"
                     >
                         <option value="">All</option>
                         <option value="Male">Male</option>
@@ -100,7 +100,7 @@ const Biodatas = () => {
                     <select
                         name="permanentDivision"
                         onChange={handleChange}
-                        className="w-full p-2 border border-gray-300 rounded dark:bg-gray-600 dark:text-gray-200"
+                        className="w-full p-2 border border-gray-300 dark:border-gray-500 rounded dark:bg-gray-600 dark:text-gray-200"
                     >
                         <option value="">All</option>
                         {divisions.map((div) => (

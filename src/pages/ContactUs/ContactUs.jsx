@@ -64,7 +64,7 @@ const ContactUs = () => {
                                 type="text"
                                 name="name"   //  required for {{name}}
                                 placeholder="Enter your name"
-                                className="border border-gray-300 mt-1 rounded dark:bg-gray-800 w-full"
+                                className="border border-gray-300 dark:border-gray-500 mt-1 rounded dark:bg-gray-800 w-full"
                                 required
                             />
                         </div>
@@ -76,7 +76,7 @@ const ContactUs = () => {
                                 type="email"
                                 name="email"  // required for {{email}}
                                 placeholder="Enter your email"
-                                className="border border-gray-300 mt-1 w-full rounded dark:bg-gray-800 dark:text-gray-200"
+                                className="border border-gray-300 dark:border-gray-500 mt-1 w-full rounded dark:bg-gray-800 dark:text-gray-200"
                                 required
                             />
                         </div>
@@ -86,13 +86,13 @@ const ContactUs = () => {
                             </label>
                             <textarea
                                 name="message" //  required for {{message}}
-                                className="border border-gray-300 textarea textarea-bordered w-full rounded dark:bg-gray-800 mt-1"
+                                className="border border-gray-300 dark:border-gray-500 textarea textarea-bordered w-full rounded dark:bg-gray-800 mt-1"
                                 rows="5"
                                 placeholder="Type your message..."
                                 required
                             ></textarea>
                         </div>
-                        <button className=" px-4 py-1 text-white bg-blue-600 rounded hover:bg-blue-700 ">Send Message</button>
+                        <button className=" px-4 py-1 text-white bg-blue-600 rounded hover:bg-blue-700">Send Message</button>
                     </form>
                     {/* Contact Information */}
                     <div className="space-y-6">

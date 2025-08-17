@@ -15,7 +15,7 @@ const AdminDashboard = () => {
         },
     });
 
-    if (isLoading) return <p className="text-center">Loading dashboard...</p>;
+    if (isLoading) return <p className="text-center dark:text-gray-200">Loading Admin Dashboard...</p>;
 
     const {
         totalBiodata,

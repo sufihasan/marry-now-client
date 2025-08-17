@@ -62,6 +62,8 @@ const Login = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
+                    color: textDarkW,
+                    background: bgDarkw,
                     text: "Something went wrong! Please recheck email and password",
 
                 });
@@ -79,6 +81,8 @@ const Login = () => {
                         // position: "top-end",
                         icon: "success",
                         title: "successfully login",
+                        color: textDarkW,
+                        background: bgDarkw,
                         showConfirmButton: false,
                         timer: 2000
                     });
@@ -105,6 +109,8 @@ const Login = () => {
                 Swal.fire({
                     icon: "error",
                     title: "Oops...",
+                    color: textDarkW,
+                    background: bgDarkw,
                     text: "Something went wrong!",
 
                 });

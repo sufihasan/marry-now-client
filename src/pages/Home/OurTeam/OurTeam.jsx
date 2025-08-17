@@ -46,7 +46,7 @@ export default function OurTeam() {
             <div className="">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">
+                    <h2 className="text-3xl md:text-3xl font-semibold text-gray-800 dark:text-white">
                         Meet Our Team
                     </h2>
                     <p className="mt-2 text-gray-600 dark:text-gray-300">

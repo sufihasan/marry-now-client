@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import Swal from "sweetalert2";
+import Loading from "../../../components/Loading";
 
 const MyContactRequest = () => {
     const { user, loading } = useAuth();
@@ -58,7 +59,7 @@ const MyContactRequest = () => {
 
         <div>
             {
-                isLoading || loading ? <p>Loading...</p> : requests.length > 0 ?
+                isLoading || loading ? <Loading></Loading> : requests.length > 0 ?
                     <div className="overflow-x-auto">
                         <h1 className="md:text-center text-2xl font-semibold my-3">My Contact Request</h1>
 

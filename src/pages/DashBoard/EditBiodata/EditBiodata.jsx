@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { use, useEffect } from 'react';
 import {
     Button,
     Label,
@@ -12,6 +12,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 const divisions = [
     'Dhaka', 'Chattagram', 'Rangpur', 'Barisal', 'Khulna', 'Mymensingh', 'Sylhet'
@@ -30,6 +31,7 @@ const EditBiodata = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
     const queryClient = useQueryClient();
+    const { bgDarkw, textDarkW } = use(DarkContext);
 
     const { register, handleSubmit, reset } = useForm();
 
@@ -52,7 +54,16 @@ const EditBiodata = () => {
         onSuccess: () => {
             queryClient.invalidateQueries(['biodata', user.email]);
 
-            Swal.fire('Edited!', 'Biodata updated successfully!', 'successfully');
+            // Swal.fire('Edited!', 'Biodata updated successfully!', 'successfully');
+            Swal.fire({
+                // position: "top-end",
+                icon: "success",
+                title: "Biodata updated successfully!",
+                showConfirmButton: false,
+                background: bgDarkw,
+                color: textDarkW,
+                timer: 1500
+            });
         },
         onError: (error) => {
             Swal.fire('Error!', error.response?.data?.message || 'Something went wrong.', 'error');
@@ -73,6 +84,8 @@ const EditBiodata = () => {
             title: 'Edit Biodata',
             text: 'Do you want to edit?',
             icon: 'question',
+            background: bgDarkw,
+            color: textDarkW,
             showCancelButton: true,
             confirmButtonText: 'Yes, edit it!',
         }).then((result) => {

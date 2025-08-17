@@ -4,6 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 // import useAxiosSecure from '../../hooks/useAxiosSecure';
 import { Link } from 'react-router';
 import useAxios from '../../../hooks/useAxios';
+import Loading from '../../../components/Loading';
 
 const PremiumMember = () => {
     // const axiosSecure = useAxiosSecure();
@@ -21,7 +22,7 @@ const PremiumMember = () => {
     return (
         <div className="p-4 max-w-7xl mx-auto mt-10">
             <div className="flex items-center justify-between mb-4">
-                <h2 className="text-xl font-semibold dark:text-gray-200">Premium Members</h2>
+                <h2 className="text-3xl font-semibold dark:text-gray-200">Premium Members</h2>
                 <Select
                     value={sortOrder}
                     onChange={(e) => setSortOrder(e.target.value)}
@@ -33,7 +34,7 @@ const PremiumMember = () => {
             </div>
 
             {isLoading ? (
-                <p>Loading...</p>
+                <Loading></Loading>
             ) : (
                 <div className="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {members.map((member) => (

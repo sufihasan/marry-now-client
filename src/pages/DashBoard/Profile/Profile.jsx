@@ -1,6 +1,6 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
-import { Button, Card } from 'flowbite-react';
+import { Button, Card, Spinner } from 'flowbite-react';
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 // import axios from 'axios';
 import useAxios from '../../../hooks/useAxios';
@@ -59,7 +59,7 @@ const Profile = () => {
     return (
         <div>
             {
-                loading ? <p>Loading ...</p> :
+                loading || isLoading ? <div className='flex justify-center items-center mt-20'><Spinner aria-label="Loading..." size="xl" /></div> :
                     <div>
                         <Card className="p-4 md:p-8">
                             <h1 className='text-center text-2xl font-semibold mb-3 dark:text-gray-300'>Profile</h1>

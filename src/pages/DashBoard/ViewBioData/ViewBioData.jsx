@@ -7,6 +7,7 @@ import Swal from 'sweetalert2';
 // import useAxiosSecure from '../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
+import Loading from '../../../components/Loading';
 
 const ViewBioData = () => {
     const { user, loading } = useAuth();
@@ -55,7 +56,7 @@ const ViewBioData = () => {
     return (
         <div>
             {
-                isLoading || loading ? <p className="text-center mt-10">Loading biodata...</p> :
+                isLoading || loading ? <p className="text-center mt-10"><Loading></Loading></p> :
                     biodata.name ? <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-10 dark:text-gray-200">
                         {/* <h1 className='text-center text-2xl font-semibold mb-3'>My Biodata</h1> */}
                         <Card className="p-4 md:p-8">

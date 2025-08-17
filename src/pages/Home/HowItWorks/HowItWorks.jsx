@@ -8,7 +8,7 @@ import { ImManWoman } from "react-icons/im";
 const HowItWorks = () => {
     return (
         <div className='w-11/12 mx-auto mt-10'>
-            <h1 className='text-2xl text-center font-semibold mb-5 dark:text-gray-200'>How MarryNow works</h1>
+            <h1 className='text-3xl text-center font-semibold mb-5 dark:text-gray-200'>How MarryNow works</h1>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 <Card className="max-w-sm" horizontal>
                     <CgProfile size={50} className='mx-auto dark:text-gray-200'></CgProfile>

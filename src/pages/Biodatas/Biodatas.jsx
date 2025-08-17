@@ -127,7 +127,7 @@ const Biodatas = () => {
                                 <img
                                     src={biodata.image}
                                     alt={biodata.name}
-                                    className="h-48 w-full object-cover rounded"
+                                    className="h-48 w-full  rounded"
                                 />
                                 <div className="mt-2 space-y-1  dark:text-gray-200">
                                     <p className="font-bold">Biodata ID: {biodata.biodataId}</p>

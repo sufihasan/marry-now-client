@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use, useState } from 'react';
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
@@ -6,12 +6,14 @@ import Swal from 'sweetalert2';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { FcGoogle } from 'react-icons/fc';
 import useAxios from '../../../hooks/useAxios';
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 const Login = () => {
     const { signIn, signInWithGoogle } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const axiosInstance = useAxios();
+    const { bgDarkw, textDarkW } = use(DarkContext);
 
     const {
         register,
@@ -20,6 +22,18 @@ const Login = () => {
     } = useForm();
 
     const from = location.state?.from || '/';
+
+    // let textDarkW;
+    // let bgDarkw
+
+    // if (dmode) {
+    //     bgDarkw = 'black';
+    //     textDarkW = 'white';
+    // }
+    // else {
+    //     bgDarkw = 'white';
+    //     textDarkW = 'black';
+    // }
 
     const onSubmit = data => {
         // console.log(data); // data is from react hook form
@@ -34,6 +48,8 @@ const Login = () => {
                         icon: "success",
                         title: "successfully login",
                         showConfirmButton: false,
+                        color: textDarkW,
+                        background: bgDarkw,
                         timer: 2000
                     });
 

@@ -4,6 +4,7 @@ import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import useAuth from '../../../hooks/useAuth';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import Swal from 'sweetalert2';
+import Loading from '../../../components/Loading';
 
 
 const MyFavouritesBiodata = () => {
@@ -50,7 +51,7 @@ const MyFavouritesBiodata = () => {
         });
     };
 
-    if (isLoading || loading) return <p className="text-center">Loading...</p>;
+    if (isLoading || loading) return <p className="text-center"><Loading></Loading></p>;
 
     return (
 

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { use, useEffect } from 'react';
 import {
     Button,
     Label,
@@ -11,6 +11,7 @@ import { useMutation, useQueryClient } from '@tanstack/react-query';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import useAuth from '../../../hooks/useAuth';
 import Swal from 'sweetalert2';
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 
 const divisions = [
@@ -29,6 +30,7 @@ const skinColors = ["Fair", "Medium", "Dark"];
 
 const CreateBioData = () => {
     const axiosSecure = useAxiosSecure();
+    const { bgDarkw, textDarkW } = use(DarkContext);
     const { user } = useAuth();
     const {
         register,
@@ -63,6 +65,8 @@ const CreateBioData = () => {
                 icon: "success",
                 title: "Your Biodata has been saved",
                 showConfirmButton: false,
+                background: bgDarkw,
+                color: textDarkW,
                 timer: 1500
             });
         },

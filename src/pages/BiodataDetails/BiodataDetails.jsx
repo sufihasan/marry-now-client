@@ -70,7 +70,7 @@ const BiodataDetails = () => {
         }
     });
 
-    if (isLoading) return <p className="text-center my-10">Loading biodata...</p>;
+    if (isLoading) return <p className="text-center my-10 dark:text-gray-200">Loading biodata...</p>;
     if (isError) {
         return (
             <p className="text-center my-10 text-red-500">

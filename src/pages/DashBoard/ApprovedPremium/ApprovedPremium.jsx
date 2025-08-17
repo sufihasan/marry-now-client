@@ -47,8 +47,8 @@ const ApprovedPremium = () => {
         });
     };
 
-    if (isLoading) return <p className="text-center mt-10">Loading pending requests...</p>;
-    if (pendingBiodatas.length === 0) return <p className="text-center mt-10 text-gray-500">No pending premium requests.</p>;
+    if (isLoading) return <p className="text-center mt-10 dark:text-gray-200">Loading pending requests...</p>;
+    if (pendingBiodatas.length === 0) return <p className="text-center mt-10 text-gray-500 dark:text-gray-200">No pending premium requests.</p>;
 
     return (
         <div className="overflow-x-auto px-4 py-10">

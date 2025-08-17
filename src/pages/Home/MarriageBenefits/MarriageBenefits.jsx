@@ -43,7 +43,7 @@ export default function MarriageBenefits() {
             <div >
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-800 dark:text-gray-300">
+                    <h2 className="text-3xl md:text-3xl font-semibold text-gray-800 dark:text-gray-300">
                         Benefits of Marriage
                     </h2>
                     <p className="mt-2 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">

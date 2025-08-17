@@ -75,7 +75,7 @@ const SidebarContent = () => {
     }
 
     return (
-        <Sidebar aria-label="Sidebar navigation" className="h-full ">
+        <Sidebar aria-label="Sidebar navigation" className="h-full dark:bg-gray-800">
             <div className="flex h-full flex-col justify-between py-2">
                 <div>
                     {/* Mobile-only search input */}

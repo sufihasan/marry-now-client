@@ -1,16 +1,18 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Button, Card, Checkbox, Label, TextInput } from "flowbite-react";
 import { useForm } from 'react-hook-form';
 import useAuth from '../../../hooks/useAuth';
 import { Link, useLocation, useNavigate } from 'react-router';
 import useAxios from '../../../hooks/useAxios';
 import Swal from 'sweetalert2';
+import { DarkContext } from '../../../context/DarkContext/DarkContext';
 
 const Register = () => {
     const { createUser, updateUserProfile } = useAuth();
     const navigate = useNavigate();
     const location = useLocation();
     const axiosInstance = useAxios();
+    const { bgDarkw, textDarkW } = use(DarkContext);
 
     const {
         register,
@@ -57,6 +59,8 @@ const Register = () => {
                             icon: "success",
                             title: "Register Successfully",
                             showConfirmButton: false,
+                            color: textDarkW,
+                            background: bgDarkw,
                             timer: 1500
                         });
                         navigate(from);
@@ -66,6 +70,8 @@ const Register = () => {
                         Swal.fire({
                             icon: "error",
                             title: "Oops...",
+                            color: textDarkW,
+                            background: bgDarkw,
                             text: "Something went wrong!",
 
                         });
